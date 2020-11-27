@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_FleetServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="areas">
+    <Key>
+      <PropertyRef Name="area_id" />
+    </Key>
+    <Property Name="area_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area_description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="bra_id" />
+    </Key>
+    <Property Name="bra_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bra_name" Type="varchar" MaxLength="150" />
+    <Property Name="bra_adress" Type="varchar" MaxLength="150" />
+    <Property Name="bra_phone" Type="varchar" MaxLength="15" />
+    <Property Name="bra_cellphone" Type="varchar" MaxLength="15" />
+    <Property Name="cty_id" Type="int" />
+    <Property Name="bra_isMain" Type="bit" />
+    <Property Name="bra_state" Type="bit" />
+    <Property Name="cli_id" Type="int" />
+    <Property Name="deal_id" Type="int" />
+    <Property Name="bra_registrationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="cty_id" />
+    </Key>
+    <Property Name="cty_id" Type="int" Nullable="false" />
+    <Property Name="cty_name" Type="varchar" MaxLength="100" />
+    <Property Name="cty_state" Type="bit" />
+    <Property Name="dpt_id" Type="int" />
+    <Property Name="cty_dane_code" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="cli_id" />
+    </Key>
+    <Property Name="cli_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cli_document" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cli_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="cli_phone" Type="varchar" MaxLength="16" />
+    <Property Name="cli_cellphone" Type="varchar" MaxLength="16" />
+    <Property Name="cli_adress" Type="varchar" MaxLength="255" />
+    <Property Name="cli_website" Type="varchar" MaxLength="255" />
+    <Property Name="cty_id" Type="int" />
+    <Property Name="cli_state" Type="bit" />
+    <Property Name="cli_registrationDate" Type="datetime" />
+    <Property Name="cli_updateDate" Type="datetime" />
+    <Property Name="cli_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="cnt_id" />
+    </Key>
+    <Property Name="cnt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cnt_name" Type="varchar" MaxLength="150" />
+    <Property Name="cnt_lastName" Type="varchar" MaxLength="150" />
+    <Property Name="cnt_phone" Type="varchar" MaxLength="15" />
+    <Property Name="cnt_cellPhone" Type="varchar" MaxLength="15" />
+    <Property Name="cnt_email" Type="varchar" MaxLength="150" />
+    <Property Name="cnt_adress" Type="varchar" MaxLength="150" />
+    <Property Name="jtcl_id" Type="int" />
+    <Property Name="cty_id" Type="int" />
+    <Property Name="bra_id" Type="int" />
+    <Property Name="cnt_state" Type="bit" />
+    <Property Name="cli_id" Type="int" />
+    <Property Name="deal_id" Type="int" />
+    <Property Name="cnt_registrationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="cntr_id" />
+    </Key>
+    <Property Name="cntr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cntr_consecutive" Type="int" />
+    <Property Name="cntr_code" Type="varchar" MaxLength="50" />
+    <Property Name="cntr_name" Type="varchar" MaxLength="100" />
+    <Property Name="cntr_observation" Type="varchar" MaxLength="500" />
+    <Property Name="deal_id" Type="int" />
+    <Property Name="cli_id" Type="int" />
+    <Property Name="cntrst_id" Type="int" />
+    <Property Name="cntr_state" Type="bit" />
+    <Property Name="dst_id" Type="int" />
+    <Property Name="cntr_discountValue" Type="int" />
+    <Property Name="cntr_amountOfMaintenances" Type="int" Nullable="false" />
+    <Property Name="cntr_startingDate" Type="datetime" />
+    <Property Name="cntr_endingDate" Type="datetime" />
+    <Property Name="cntr_duration" Type="int" />
+    <Property Name="cntr_registrationDate" Type="datetime" />
+    <Property Name="cntr_updateDate" Type="datetime" />
+    <Property Name="cntr_deleteDate" Type="datetime" />
+    <Property Name="cntr_amountVehicles" Type="int" />
+  </EntityType>
+  <EntityType Name="ContractState">
+    <Key>
+      <PropertyRef Name="cntrst_id" />
+    </Key>
+    <Property Name="cntrst_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cntrst_name" Type="varchar" MaxLength="100" />
+    <Property Name="cntrst_description" Type="varchar" MaxLength="255" />
+    <Property Name="cntrst_state" Type="bit" />
+    <Property Name="cntrst_registrationDate" Type="datetime" />
+    <Property Name="cntrst_updateDate" Type="datetime" />
+    <Property Name="cntrst_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="ctry_id" />
+    </Key>
+    <Property Name="ctry_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ctry_name" Type="varchar" MaxLength="100" />
+    <Property Name="ctry_state" Type="bit" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="deal_id" />
+    </Key>
+    <Property Name="deal_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deal_document" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="deal_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="deal_state" Type="bit" />
+    <Property Name="deal_registrationDate" Type="datetime" />
+    <Property Name="deal_updateDate" Type="datetime" />
+    <Property Name="deal_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DealerByDealerNerwork">
+    <Key>
+      <PropertyRef Name="dbdn_id" />
+    </Key>
+    <Property Name="dbdn_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dn_id" Type="int" />
+    <Property Name="deal_id" Type="int" />
+  </EntityType>
+  <EntityType Name="DealerNetwork">
+    <Key>
+      <PropertyRef Name="dn_id" />
+    </Key>
+    <Property Name="dn_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dn_name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="dn_state" Type="bit" />
+    <Property Name="dn_registrationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="dpt_id" />
+    </Key>
+    <Property Name="dpt_id" Type="int" Nullable="false" />
+    <Property Name="dpt_name" Type="varchar" MaxLength="100" />
+    <Property Name="dpt_state" Type="bit" />
+    <Property Name="ctry_id" Type="int" />
+  </EntityType>
+  <EntityType Name="DiscountType">
+    <Key>
+      <PropertyRef Name="dst_id" />
+    </Key>
+    <Property Name="dst_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dst_name" Type="varchar" MaxLength="150" />
+    <Property Name="dst_state" Type="bit" />
+    <Property Name="dst_registrationDate" Type="datetime" />
+    <Property Name="dst_updateDate" Type="datetime" />
+    <Property Name="dst_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="frequency">
+    <Key>
+      <PropertyRef Name="fq_id" />
+    </Key>
+    <Property Name="fq_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fq_name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="fq_state" Type="bit" />
+    <Property Name="fq_registrationDate" Type="datetime" />
+    <Property Name="fq_updateDate" Type="datetime" />
+    <Property Name="fq_deleteDate" Type="datetime" />
+    <Property Name="fq_shortName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ItemsByRoutines">
+    <Key>
+      <PropertyRef Name="ibr_id" />
+    </Key>
+    <Property Name="ibr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mi_id" Type="int" />
+    <Property Name="mr_id" Type="int" />
+    <Property Name="mi_amount" Type="real" />
+    <Property Name="ibr_registrationDate" Type="datetime" />
+    <Property Name="ibr_updateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="jobTitle">
+    <Key>
+      <PropertyRef Name="jt_id" />
+    </Key>
+    <Property Name="jt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jt_description" Type="varchar" MaxLength="50" />
+    <Property Name="area_id" Type="int" />
+  </EntityType>
+  <EntityType Name="JobTitlesClient">
+    <Key>
+      <PropertyRef Name="jtcl_id" />
+    </Key>
+    <Property Name="jtcl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jtcl_description" Type="varchar" MaxLength="150" />
+    <Property Name="jtcl_state" Type="bit" />
+  </EntityType>
+  <EntityType Name="MaintenanceItem">
+    <Key>
+      <PropertyRef Name="mi_id" />
+    </Key>
+    <Property Name="mi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mi_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mi_name" Type="varchar" MaxLength="255" />
+    <Property Name="mi_description" Type="varchar" MaxLength="255" />
+    <Property Name="tmi_id" Type="int" Nullable="false" />
+    <Property Name="pu_id" Type="int" Nullable="false" />
+    <Property Name="mi_referencePrice" Type="real" />
+    <Property Name="mi_state" Type="bit" />
+    <Property Name="mi_registrationDate" Type="datetime" />
+    <Property Name="mi_updateDate" Type="datetime" />
+    <Property Name="mi_deleteDate" Type="datetime" />
+    <Property Name="mict_id" Type="int" />
+  </EntityType>
+  <EntityType Name="MaintenanceItemCategory">
+    <Key>
+      <PropertyRef Name="mict_id" />
+    </Key>
+    <Property Name="mict_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mict_name" Type="varchar" MaxLength="100" />
+    <Property Name="mict_state" Type="bit" />
+    <Property Name="mict_registrationDate" Type="datetime" />
+    <Property Name="mict_updateDate" Type="datetime" />
+    <Property Name="mict_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MaintenanceItemsByVehicleModels">
+    <Key>
+      <PropertyRef Name="mivm_id" />
+    </Key>
+    <Property Name="mivm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mi_id" Type="int" />
+    <Property Name="vm_id" Type="int" />
+    <Property Name="mivm_registrationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MaintenanceItemsByVehicleTypes">
+    <Key>
+      <PropertyRef Name="mivt_id" />
+    </Key>
+    <Property Name="mivt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mi_id" Type="int" />
+    <Property Name="vt_id" Type="int" />
+    <Property Name="mivt_registrationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="maintenanceRoutine">
+    <Key>
+      <PropertyRef Name="mr_id" />
+    </Key>
+    <Property Name="mr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mr_name" Type="varchar" MaxLength="150" />
+    <Property Name="mr_description" Type="varchar" MaxLength="255" />
+    <Property Name="vm_id" Type="int" />
+    <Property Name="fq_id" Type="int" />
+    <Property Name="mr_state" Type="bit" />
+    <Property Name="mr_registrationDate" Type="datetime" />
+    <Property Name="mr_updateDate" Type="datetime" />
+    <Property Name="mr_deleteDate" Type="datetime" />
+    <Property Name="mr_referencePrice" Type="real" />
+  </EntityType>
+  <EntityType Name="PresentationUnit">
+    <Key>
+      <PropertyRef Name="pu_id" />
+    </Key>
+    <Property Name="pu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pu_shortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pu_longName" Type="varchar" MaxLength="150" />
+    <Property Name="pu_state" Type="bit" />
+    <Property Name="pu_registrationDate" Type="datetime" />
+    <Property Name="pu_updateDate" Type="datetime" />
+    <Property Name="pu_DeleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TypeOfMaintenanceItem">
+    <Key>
+      <PropertyRef Name="tmi_id" />
+    </Key>
+    <Property Name="tmi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tmi_name" Type="varchar" MaxLength="50" />
+    <Property Name="tmi_state" Type="bit" />
+    <Property Name="tmi_registrationDate" Type="datetime" />
+    <Property Name="tmi_updateDate" Type="datetime" />
+    <Property Name="tmi_DeleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="veh_id" />
+    </Key>
+    <Property Name="veh_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="veh_licensePlate" Type="varchar" MaxLength="10" />
+    <Property Name="veh_chasisCode" Type="varchar" MaxLength="20" />
+    <Property Name="vm_id" Type="int" />
+    <Property Name="veh_year" Type="varchar" MaxLength="4" />
+    <Property Name="veh_mileage" Type="int" />
+    <Property Name="cli_id" Type="int" />
+    <Property Name="veh_state" Type="bit" />
+    <Property Name="veh_registrationDate" Type="datetime" />
+    <Property Name="veh_updateDate" Type="datetime" />
+    <Property Name="veh_deleteDate" Type="datetime" />
+    <Property Name="vs_id" Type="int" />
+  </EntityType>
+  <EntityType Name="VehicleBrand">
+    <Key>
+      <PropertyRef Name="vb_id" />
+    </Key>
+    <Property Name="vb_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vb_name" Type="varchar" MaxLength="100" />
+    <Property Name="vb_state" Type="bit" />
+    <Property Name="vb_registrationDate" Type="datetime" />
+    <Property Name="vb_updateDate" Type="datetime" />
+    <Property Name="vb_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VehicleModel">
+    <Key>
+      <PropertyRef Name="vm_id" />
+    </Key>
+    <Property Name="vm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vm_shortName" Type="varchar" MaxLength="100" />
+    <Property Name="vm_longName" Type="varchar" MaxLength="255" />
+    <Property Name="vm_state" Type="bit" />
+    <Property Name="vm_registrationDate" Type="datetime" />
+    <Property Name="vm_updateDate" Type="datetime" />
+    <Property Name="vm_deleteDate" Type="datetime" />
+    <Property Name="vb_id" Type="int" />
+    <Property Name="vt_id" Type="int" />
+  </EntityType>
+  <EntityType Name="VehicleModelsByContract">
+    <Key>
+      <PropertyRef Name="vmcnt_id" />
+    </Key>
+    <Property Name="vmcnt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vm_id" Type="int" />
+    <Property Name="cntr_id" Type="int" />
+    <Property Name="vmcnt_registrationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VehiclesByContract">
+    <Key>
+      <PropertyRef Name="vehcntr_id" />
+    </Key>
+    <Property Name="vehcntr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="veh_id" Type="int" />
+    <Property Name="cntr_id" Type="int" />
+  </EntityType>
+  <EntityType Name="vehicleState">
+    <Key>
+      <PropertyRef Name="vs_id" />
+    </Key>
+    <Property Name="vs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vs_name" Type="varchar" MaxLength="50" />
+    <Property Name="vs_state" Type="bit" />
+    <Property Name="vs_registrationDate" Type="datetime" />
+    <Property Name="vs_updateDate" Type="datetime" />
+    <Property Name="vs_deleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VehicleType">
+    <Key>
+      <PropertyRef Name="vt_id" />
+    </Key>
+    <Property Name="vt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vt_name" Type="varchar" MaxLength="100" />
+    <Property Name="vt_description" Type="varchar" MaxLength="255" />
+    <Property Name="vt_state" Type="bit" />
+    <Property Name="vt_registrationDate" Type="datetime" />
+    <Property Name="vt_updateDate" Type="datetime" />
+    <Property Name="vt_deleteDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__branch__cli_id__5CD6CB2B">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="branch" Type="Self.branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cli_id" />
+      </Principal>
+      <Dependent Role="branch">
+        <PropertyRef Name="cli_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__branch__cty_id__5DCAEF64">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="branch" Type="Self.branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="cty_id" />
+      </Principal>
+      <Dependent Role="branch">
+        <PropertyRef Name="cty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__branch__deal_id__5EBF139D">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="branch" Type="Self.branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="deal_id" />
+      </Principal>
+      <Dependent Role="branch">
+        <PropertyRef Name="deal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cities__dpt_id__3E52440B">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="dpt_id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="dpt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__cty_id__4316F928">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="cty_id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="cty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact__bra_id__6D0D32F4">
+    <End Role="branch" Type="Self.branch" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="branch">
+        <PropertyRef Name="bra_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="bra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact__cli_id__6FE99F9F">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cli_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="cli_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact__cty_id__6E01572D">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="cty_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="cty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact__deal_id__70DDC3D8">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="deal_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="deal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact__jtcl_id__6EF57B66">
+    <End Role="JobTitlesClient" Type="Self.JobTitlesClient" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobTitlesClient">
+        <PropertyRef Name="jtcl_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="jtcl_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contract__cli_id__19AACF41">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cli_id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="cli_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contract__cntrst__1B9317B3">
+    <End Role="ContractState" Type="Self.ContractState" Multiplicity="0..1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractState">
+        <PropertyRef Name="cntrst_id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="cntrst_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contract__deal_i__1A9EF37A">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="deal_id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="deal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contract__dst_id__1C873BEC">
+    <End Role="DiscountType" Type="Self.DiscountType" Multiplicity="0..1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiscountType">
+        <PropertyRef Name="dst_id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="dst_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DealerByD__deal___4D94879B">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="DealerByDealerNerwork" Type="Self.DealerByDealerNerwork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="deal_id" />
+      </Principal>
+      <Dependent Role="DealerByDealerNerwork">
+        <PropertyRef Name="deal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DealerByD__dn_id__4CA06362">
+    <End Role="DealerNetwork" Type="Self.DealerNetwork" Multiplicity="0..1" />
+    <End Role="DealerByDealerNerwork" Type="Self.DealerByDealerNerwork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DealerNetwork">
+        <PropertyRef Name="dn_id" />
+      </Principal>
+      <Dependent Role="DealerByDealerNerwork">
+        <PropertyRef Name="dn_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departmen__ctry___3A81B327">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="ctry_id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="ctry_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemsByRo__mi_id__09746778">
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
+    <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintenanceItem">
+        <PropertyRef Name="mi_id" />
+      </Principal>
+      <Dependent Role="ItemsByRoutines">
+        <PropertyRef Name="mi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemsByRo__mi_id__0A688BB1">
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
+    <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintenanceItem">
+        <PropertyRef Name="mi_id" />
+      </Principal>
+      <Dependent Role="ItemsByRoutines">
+        <PropertyRef Name="mi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemsByRo__mr_id__0B5CAFEA">
+    <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="0..1" />
+    <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="maintenanceRoutine">
+        <PropertyRef Name="mr_id" />
+      </Principal>
+      <Dependent Role="ItemsByRoutines">
+        <PropertyRef Name="mr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemsByRo__mr_id__0C50D423">
+    <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="0..1" />
+    <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="maintenanceRoutine">
+        <PropertyRef Name="mr_id" />
+      </Principal>
+      <Dependent Role="ItemsByRoutines">
+        <PropertyRef Name="mr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__mi_id__00DF2177">
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
+    <End Role="MaintenanceItemsByVehicleTypes" Type="Self.MaintenanceItemsByVehicleTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintenanceItem">
+        <PropertyRef Name="mi_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItemsByVehicleTypes">
+        <PropertyRef Name="mi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__mi_id__7B264821">
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
+    <End Role="MaintenanceItemsByVehicleModels" Type="Self.MaintenanceItemsByVehicleModels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintenanceItem">
+        <PropertyRef Name="mi_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItemsByVehicleModels">
+        <PropertyRef Name="mi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__pu_id__45BE5BA9">
+    <End Role="PresentationUnit" Type="Self.PresentationUnit" Multiplicity="1" />
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PresentationUnit">
+        <PropertyRef Name="pu_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItem">
+        <PropertyRef Name="pu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__tmi_i__44CA3770">
+    <End Role="TypeOfMaintenanceItem" Type="Self.TypeOfMaintenanceItem" Multiplicity="1" />
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfMaintenanceItem">
+        <PropertyRef Name="tmi_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItem">
+        <PropertyRef Name="tmi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__vm_id__7C1A6C5A">
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
+    <End Role="MaintenanceItemsByVehicleModels" Type="Self.MaintenanceItemsByVehicleModels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleModel">
+        <PropertyRef Name="vm_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItemsByVehicleModels">
+        <PropertyRef Name="vm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__vt_id__01D345B0">
+    <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="0..1" />
+    <End Role="MaintenanceItemsByVehicleTypes" Type="Self.MaintenanceItemsByVehicleTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleType">
+        <PropertyRef Name="vt_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItemsByVehicleTypes">
+        <PropertyRef Name="vt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__cli_id__1332DBDC">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cli_id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="cli_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__vm_id__123EB7A3">
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleModel">
+        <PropertyRef Name="vm_id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="vm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VehicleMo__cntr___214BF109">
+    <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
+    <End Role="VehicleModelsByContract" Type="Self.VehicleModelsByContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="cntr_id" />
+      </Principal>
+      <Dependent Role="VehicleModelsByContract">
+        <PropertyRef Name="cntr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VehicleMo__vm_id__2057CCD0">
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
+    <End Role="VehicleModelsByContract" Type="Self.VehicleModelsByContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleModel">
+        <PropertyRef Name="vm_id" />
+      </Principal>
+      <Dependent Role="VehicleModelsByContract">
+        <PropertyRef Name="vm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VehiclesB__cntr___251C81ED">
+    <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
+    <End Role="VehiclesByContract" Type="Self.VehiclesByContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="cntr_id" />
+      </Principal>
+      <Dependent Role="VehiclesByContract">
+        <PropertyRef Name="cntr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VehiclesB__veh_i__24285DB4">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehiclesByContract" Type="Self.VehiclesByContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="veh_id" />
+      </Principal>
+      <Dependent Role="VehiclesByContract">
+        <PropertyRef Name="veh_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jobTitle_areas">
+    <End Role="areas" Type="Self.areas" Multiplicity="0..1" />
+    <End Role="jobTitle" Type="Self.jobTitle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="areas">
+        <PropertyRef Name="area_id" />
+      </Principal>
+      <Dependent Role="jobTitle">
+        <PropertyRef Name="area_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maintenanceItem_maintenanceItemCategory">
+    <End Role="MaintenanceItemCategory" Type="Self.MaintenanceItemCategory" Multiplicity="0..1" />
+    <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintenanceItemCategory">
+        <PropertyRef Name="mict_id" />
+      </Principal>
+      <Dependent Role="MaintenanceItem">
+        <PropertyRef Name="mict_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maintenanceRoutine_frequency">
+    <End Role="frequency" Type="Self.frequency" Multiplicity="0..1" />
+    <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="frequency">
+        <PropertyRef Name="fq_id" />
+      </Principal>
+      <Dependent Role="maintenanceRoutine">
+        <PropertyRef Name="fq_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maintenanceRoutine_vehicleModel">
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
+    <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleModel">
+        <PropertyRef Name="vm_id" />
+      </Principal>
+      <Dependent Role="maintenanceRoutine">
+        <PropertyRef Name="vm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehicle_vehicleState">
+    <End Role="vehicleState" Type="Self.vehicleState" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehicleState">
+        <PropertyRef Name="vs_id" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="vs_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclemodel_vehicleBrand">
+    <End Role="VehicleBrand" Type="Self.VehicleBrand" Multiplicity="0..1" />
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleBrand">
+        <PropertyRef Name="vb_id" />
+      </Principal>
+      <Dependent Role="VehicleModel">
+        <PropertyRef Name="vb_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehicleModel_vehicleType">
+    <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="0..1" />
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleType">
+        <PropertyRef Name="vt_id" />
+      </Principal>
+      <Dependent Role="VehicleModel">
+        <PropertyRef Name="vt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_FleetServiceModelStoreContainer">
+    <EntitySet Name="areas" EntityType="Self.areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="branch" EntityType="Self.branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractState" EntityType="Self.ContractState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dealer" EntityType="Self.Dealer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DealerByDealerNerwork" EntityType="Self.DealerByDealerNerwork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DealerNetwork" EntityType="Self.DealerNetwork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiscountType" EntityType="Self.DiscountType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="frequency" EntityType="Self.frequency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemsByRoutines" EntityType="Self.ItemsByRoutines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jobTitle" EntityType="Self.jobTitle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobTitlesClient" EntityType="Self.JobTitlesClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintenanceItem" EntityType="Self.MaintenanceItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintenanceItemCategory" EntityType="Self.MaintenanceItemCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintenanceItemsByVehicleModels" EntityType="Self.MaintenanceItemsByVehicleModels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintenanceItemsByVehicleTypes" EntityType="Self.MaintenanceItemsByVehicleTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="maintenanceRoutine" EntityType="Self.maintenanceRoutine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PresentationUnit" EntityType="Self.PresentationUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeOfMaintenanceItem" EntityType="Self.TypeOfMaintenanceItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleBrand" EntityType="Self.VehicleBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleModel" EntityType="Self.VehicleModel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleModelsByContract" EntityType="Self.VehicleModelsByContract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehiclesByContract" EntityType="Self.VehiclesByContract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vehicleState" EntityType="Self.vehicleState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__branch__cli_id__5CD6CB2B" Association="Self.FK__branch__cli_id__5CD6CB2B">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="branch" EntitySet="branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__branch__cty_id__5DCAEF64" Association="Self.FK__branch__cty_id__5DCAEF64">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="branch" EntitySet="branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__branch__deal_id__5EBF139D" Association="Self.FK__branch__deal_id__5EBF139D">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="branch" EntitySet="branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cities__dpt_id__3E52440B" Association="Self.FK__Cities__dpt_id__3E52440B">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__cty_id__4316F928" Association="Self.FK__Client__cty_id__4316F928">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact__bra_id__6D0D32F4" Association="Self.FK__Contact__bra_id__6D0D32F4">
+      <End Role="branch" EntitySet="branch" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact__cli_id__6FE99F9F" Association="Self.FK__Contact__cli_id__6FE99F9F">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact__cty_id__6E01572D" Association="Self.FK__Contact__cty_id__6E01572D">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact__deal_id__70DDC3D8" Association="Self.FK__Contact__deal_id__70DDC3D8">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact__jtcl_id__6EF57B66" Association="Self.FK__Contact__jtcl_id__6EF57B66">
+      <End Role="JobTitlesClient" EntitySet="JobTitlesClient" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contract__cli_id__19AACF41" Association="Self.FK__Contract__cli_id__19AACF41">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contract__cntrst__1B9317B3" Association="Self.FK__Contract__cntrst__1B9317B3">
+      <End Role="ContractState" EntitySet="ContractState" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contract__deal_i__1A9EF37A" Association="Self.FK__Contract__deal_i__1A9EF37A">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contract__dst_id__1C873BEC" Association="Self.FK__Contract__dst_id__1C873BEC">
+      <End Role="DiscountType" EntitySet="DiscountType" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DealerByD__deal___4D94879B" Association="Self.FK__DealerByD__deal___4D94879B">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="DealerByDealerNerwork" EntitySet="DealerByDealerNerwork" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DealerByD__dn_id__4CA06362" Association="Self.FK__DealerByD__dn_id__4CA06362">
+      <End Role="DealerNetwork" EntitySet="DealerNetwork" />
+      <End Role="DealerByDealerNerwork" EntitySet="DealerByDealerNerwork" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departmen__ctry___3A81B327" Association="Self.FK__Departmen__ctry___3A81B327">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemsByRo__mi_id__09746778" Association="Self.FK__ItemsByRo__mi_id__09746778">
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+      <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemsByRo__mi_id__0A688BB1" Association="Self.FK__ItemsByRo__mi_id__0A688BB1">
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+      <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemsByRo__mr_id__0B5CAFEA" Association="Self.FK__ItemsByRo__mr_id__0B5CAFEA">
+      <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
+      <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemsByRo__mr_id__0C50D423" Association="Self.FK__ItemsByRo__mr_id__0C50D423">
+      <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
+      <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__mi_id__00DF2177" Association="Self.FK__Maintenan__mi_id__00DF2177">
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+      <End Role="MaintenanceItemsByVehicleTypes" EntitySet="MaintenanceItemsByVehicleTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__mi_id__7B264821" Association="Self.FK__Maintenan__mi_id__7B264821">
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+      <End Role="MaintenanceItemsByVehicleModels" EntitySet="MaintenanceItemsByVehicleModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__pu_id__45BE5BA9" Association="Self.FK__Maintenan__pu_id__45BE5BA9">
+      <End Role="PresentationUnit" EntitySet="PresentationUnit" />
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__tmi_i__44CA3770" Association="Self.FK__Maintenan__tmi_i__44CA3770">
+      <End Role="TypeOfMaintenanceItem" EntitySet="TypeOfMaintenanceItem" />
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__vm_id__7C1A6C5A" Association="Self.FK__Maintenan__vm_id__7C1A6C5A">
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+      <End Role="MaintenanceItemsByVehicleModels" EntitySet="MaintenanceItemsByVehicleModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__vt_id__01D345B0" Association="Self.FK__Maintenan__vt_id__01D345B0">
+      <End Role="VehicleType" EntitySet="VehicleType" />
+      <End Role="MaintenanceItemsByVehicleTypes" EntitySet="MaintenanceItemsByVehicleTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__cli_id__1332DBDC" Association="Self.FK__Vehicle__cli_id__1332DBDC">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__vm_id__123EB7A3" Association="Self.FK__Vehicle__vm_id__123EB7A3">
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VehicleMo__cntr___214BF109" Association="Self.FK__VehicleMo__cntr___214BF109">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="VehicleModelsByContract" EntitySet="VehicleModelsByContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VehicleMo__vm_id__2057CCD0" Association="Self.FK__VehicleMo__vm_id__2057CCD0">
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+      <End Role="VehicleModelsByContract" EntitySet="VehicleModelsByContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VehiclesB__cntr___251C81ED" Association="Self.FK__VehiclesB__cntr___251C81ED">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="VehiclesByContract" EntitySet="VehiclesByContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VehiclesB__veh_i__24285DB4" Association="Self.FK__VehiclesB__veh_i__24285DB4">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="VehiclesByContract" EntitySet="VehiclesByContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jobTitle_areas" Association="Self.FK_jobTitle_areas">
+      <End Role="areas" EntitySet="areas" />
+      <End Role="jobTitle" EntitySet="jobTitle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maintenanceItem_maintenanceItemCategory" Association="Self.FK_maintenanceItem_maintenanceItemCategory">
+      <End Role="MaintenanceItemCategory" EntitySet="MaintenanceItemCategory" />
+      <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maintenanceRoutine_frequency" Association="Self.FK_maintenanceRoutine_frequency">
+      <End Role="frequency" EntitySet="frequency" />
+      <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maintenanceRoutine_vehicleModel" Association="Self.FK_maintenanceRoutine_vehicleModel">
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+      <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehicle_vehicleState" Association="Self.FK_vehicle_vehicleState">
+      <End Role="vehicleState" EntitySet="vehicleState" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclemodel_vehicleBrand" Association="Self.FK_vehiclemodel_vehicleBrand">
+      <End Role="VehicleBrand" EntitySet="VehicleBrand" />
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehicleModel_vehicleType" Association="Self.FK_vehicleModel_vehicleType">
+      <End Role="VehicleType" EntitySet="VehicleType" />
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

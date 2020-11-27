@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_FleetServiceModelStoreContainer" CdmEntityContainer="DB_FleetServiceEntities">
+    <EntitySetMapping Name="areas">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.areas">
+        <MappingFragment StoreEntitySet="areas">
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="area_description" ColumnName="area_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="branch">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.branch">
+        <MappingFragment StoreEntitySet="branch">
+          <ScalarProperty Name="bra_id" ColumnName="bra_id" />
+          <ScalarProperty Name="bra_name" ColumnName="bra_name" />
+          <ScalarProperty Name="bra_adress" ColumnName="bra_adress" />
+          <ScalarProperty Name="bra_phone" ColumnName="bra_phone" />
+          <ScalarProperty Name="bra_cellphone" ColumnName="bra_cellphone" />
+          <ScalarProperty Name="cty_id" ColumnName="cty_id" />
+          <ScalarProperty Name="bra_isMain" ColumnName="bra_isMain" />
+          <ScalarProperty Name="bra_state" ColumnName="bra_state" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+          <ScalarProperty Name="bra_registrationDate" ColumnName="bra_registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="cty_id" ColumnName="cty_id" />
+          <ScalarProperty Name="cty_name" ColumnName="cty_name" />
+          <ScalarProperty Name="cty_state" ColumnName="cty_state" />
+          <ScalarProperty Name="dpt_id" ColumnName="dpt_id" />
+          <ScalarProperty Name="cty_dane_code" ColumnName="cty_dane_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="cli_deleteDate" ColumnName="cli_deleteDate" />
+          <ScalarProperty Name="cli_updateDate" ColumnName="cli_updateDate" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="cli_document" ColumnName="cli_document" />
+          <ScalarProperty Name="cli_name" ColumnName="cli_name" />
+          <ScalarProperty Name="cli_phone" ColumnName="cli_phone" />
+          <ScalarProperty Name="cli_cellphone" ColumnName="cli_cellphone" />
+          <ScalarProperty Name="cli_adress" ColumnName="cli_adress" />
+          <ScalarProperty Name="cli_website" ColumnName="cli_website" />
+          <ScalarProperty Name="cty_id" ColumnName="cty_id" />
+          <ScalarProperty Name="cli_state" ColumnName="cli_state" />
+          <ScalarProperty Name="cli_registrationDate" ColumnName="cli_registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="cnt_id" ColumnName="cnt_id" />
+          <ScalarProperty Name="cnt_name" ColumnName="cnt_name" />
+          <ScalarProperty Name="cnt_lastName" ColumnName="cnt_lastName" />
+          <ScalarProperty Name="cnt_phone" ColumnName="cnt_phone" />
+          <ScalarProperty Name="cnt_cellPhone" ColumnName="cnt_cellPhone" />
+          <ScalarProperty Name="cnt_email" ColumnName="cnt_email" />
+          <ScalarProperty Name="cnt_adress" ColumnName="cnt_adress" />
+          <ScalarProperty Name="jtcl_id" ColumnName="jtcl_id" />
+          <ScalarProperty Name="cty_id" ColumnName="cty_id" />
+          <ScalarProperty Name="bra_id" ColumnName="bra_id" />
+          <ScalarProperty Name="cnt_state" ColumnName="cnt_state" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+          <ScalarProperty Name="cnt_registrationDate" ColumnName="cnt_registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="ctry_id" ColumnName="ctry_id" />
+          <ScalarProperty Name="ctry_name" ColumnName="ctry_name" />
+          <ScalarProperty Name="ctry_state" ColumnName="ctry_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dealer">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Dealer">
+        <MappingFragment StoreEntitySet="Dealer">
+          <ScalarProperty Name="deal_deleteDate" ColumnName="deal_deleteDate" />
+          <ScalarProperty Name="deal_updateDate" ColumnName="deal_updateDate" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+          <ScalarProperty Name="deal_document" ColumnName="deal_document" />
+          <ScalarProperty Name="deal_name" ColumnName="deal_name" />
+          <ScalarProperty Name="deal_state" ColumnName="deal_state" />
+          <ScalarProperty Name="deal_registrationDate" ColumnName="deal_registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DealerByDealerNerwork">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.DealerByDealerNerwork">
+        <MappingFragment StoreEntitySet="DealerByDealerNerwork">
+          <ScalarProperty Name="dbdn_id" ColumnName="dbdn_id" />
+          <ScalarProperty Name="dn_id" ColumnName="dn_id" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DealerNetwork">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.DealerNetwork">
+        <MappingFragment StoreEntitySet="DealerNetwork">
+          <ScalarProperty Name="dn_id" ColumnName="dn_id" />
+          <ScalarProperty Name="dn_name" ColumnName="dn_name" />
+          <ScalarProperty Name="dn_state" ColumnName="dn_state" />
+          <ScalarProperty Name="dn_registrationDate" ColumnName="dn_registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="dpt_id" ColumnName="dpt_id" />
+          <ScalarProperty Name="dpt_name" ColumnName="dpt_name" />
+          <ScalarProperty Name="dpt_state" ColumnName="dpt_state" />
+          <ScalarProperty Name="ctry_id" ColumnName="ctry_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobTitle">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.jobTitle">
+        <MappingFragment StoreEntitySet="jobTitle">
+          <ScalarProperty Name="jt_id" ColumnName="jt_id" />
+          <ScalarProperty Name="jt_description" ColumnName="jt_description" />
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobTitlesClient">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.JobTitlesClient">
+        <MappingFragment StoreEntitySet="JobTitlesClient">
+          <ScalarProperty Name="jtcl_id" ColumnName="jtcl_id" />
+          <ScalarProperty Name="jtcl_description" ColumnName="jtcl_description" />
+          <ScalarProperty Name="jtcl_state" ColumnName="jtcl_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="vs_id" ColumnName="vs_id" />
+          <ScalarProperty Name="veh_deleteDate" ColumnName="veh_deleteDate" />
+          <ScalarProperty Name="veh_updateDate" ColumnName="veh_updateDate" />
+          <ScalarProperty Name="veh_registrationDate" ColumnName="veh_registrationDate" />
+          <ScalarProperty Name="veh_state" ColumnName="veh_state" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="veh_mileage" ColumnName="veh_mileage" />
+          <ScalarProperty Name="veh_year" ColumnName="veh_year" />
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+          <ScalarProperty Name="veh_chasisCode" ColumnName="veh_chasisCode" />
+          <ScalarProperty Name="veh_licensePlate" ColumnName="veh_licensePlate" />
+          <ScalarProperty Name="veh_id" ColumnName="veh_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleBrand">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.VehicleBrand">
+        <MappingFragment StoreEntitySet="VehicleBrand">
+          <ScalarProperty Name="vb_deleteDate" ColumnName="vb_deleteDate" />
+          <ScalarProperty Name="vb_updateDate" ColumnName="vb_updateDate" />
+          <ScalarProperty Name="vb_registrationDate" ColumnName="vb_registrationDate" />
+          <ScalarProperty Name="vb_state" ColumnName="vb_state" />
+          <ScalarProperty Name="vb_name" ColumnName="vb_name" />
+          <ScalarProperty Name="vb_id" ColumnName="vb_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleModel">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.VehicleModel">
+        <MappingFragment StoreEntitySet="VehicleModel">
+          <ScalarProperty Name="vt_id" ColumnName="vt_id" />
+          <ScalarProperty Name="vb_id" ColumnName="vb_id" />
+          <ScalarProperty Name="vm_deleteDate" ColumnName="vm_deleteDate" />
+          <ScalarProperty Name="vm_updateDate" ColumnName="vm_updateDate" />
+          <ScalarProperty Name="vm_registrationDate" ColumnName="vm_registrationDate" />
+          <ScalarProperty Name="vm_state" ColumnName="vm_state" />
+          <ScalarProperty Name="vm_longName" ColumnName="vm_longName" />
+          <ScalarProperty Name="vm_shortName" ColumnName="vm_shortName" />
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleType">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.VehicleType">
+        <MappingFragment StoreEntitySet="VehicleType">
+          <ScalarProperty Name="vt_deleteDate" ColumnName="vt_deleteDate" />
+          <ScalarProperty Name="vt_updateDate" ColumnName="vt_updateDate" />
+          <ScalarProperty Name="vt_registrationDate" ColumnName="vt_registrationDate" />
+          <ScalarProperty Name="vt_state" ColumnName="vt_state" />
+          <ScalarProperty Name="vt_description" ColumnName="vt_description" />
+          <ScalarProperty Name="vt_name" ColumnName="vt_name" />
+          <ScalarProperty Name="vt_id" ColumnName="vt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicleState">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.vehicleState">
+        <MappingFragment StoreEntitySet="vehicleState">
+          <ScalarProperty Name="vs_deleteDate" ColumnName="vs_deleteDate" />
+          <ScalarProperty Name="vs_updateDate" ColumnName="vs_updateDate" />
+          <ScalarProperty Name="vs_registrationDate" ColumnName="vs_registrationDate" />
+          <ScalarProperty Name="vs_state" ColumnName="vs_state" />
+          <ScalarProperty Name="vs_name" ColumnName="vs_name" />
+          <ScalarProperty Name="vs_id" ColumnName="vs_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceItem">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.MaintenanceItem">
+        <MappingFragment StoreEntitySet="MaintenanceItem">
+          <ScalarProperty Name="mict_id" ColumnName="mict_id" />
+          <ScalarProperty Name="mi_deleteDate" ColumnName="mi_deleteDate" />
+          <ScalarProperty Name="mi_updateDate" ColumnName="mi_updateDate" />
+          <ScalarProperty Name="mi_registrationDate" ColumnName="mi_registrationDate" />
+          <ScalarProperty Name="mi_state" ColumnName="mi_state" />
+          <ScalarProperty Name="mi_referencePrice" ColumnName="mi_referencePrice" />
+          <ScalarProperty Name="pu_id" ColumnName="pu_id" />
+          <ScalarProperty Name="tmi_id" ColumnName="tmi_id" />
+          <ScalarProperty Name="mi_description" ColumnName="mi_description" />
+          <ScalarProperty Name="mi_name" ColumnName="mi_name" />
+          <ScalarProperty Name="mi_code" ColumnName="mi_code" />
+          <ScalarProperty Name="mi_id" ColumnName="mi_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PresentationUnit">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.PresentationUnit">
+        <MappingFragment StoreEntitySet="PresentationUnit">
+          <ScalarProperty Name="pu_DeleteDate" ColumnName="pu_DeleteDate" />
+          <ScalarProperty Name="pu_updateDate" ColumnName="pu_updateDate" />
+          <ScalarProperty Name="pu_registrationDate" ColumnName="pu_registrationDate" />
+          <ScalarProperty Name="pu_state" ColumnName="pu_state" />
+          <ScalarProperty Name="pu_longName" ColumnName="pu_longName" />
+          <ScalarProperty Name="pu_shortName" ColumnName="pu_shortName" />
+          <ScalarProperty Name="pu_id" ColumnName="pu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfMaintenanceItem">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.TypeOfMaintenanceItem">
+        <MappingFragment StoreEntitySet="TypeOfMaintenanceItem">
+          <ScalarProperty Name="tmi_DeleteDate" ColumnName="tmi_DeleteDate" />
+          <ScalarProperty Name="tmi_updateDate" ColumnName="tmi_updateDate" />
+          <ScalarProperty Name="tmi_registrationDate" ColumnName="tmi_registrationDate" />
+          <ScalarProperty Name="tmi_state" ColumnName="tmi_state" />
+          <ScalarProperty Name="tmi_name" ColumnName="tmi_name" />
+          <ScalarProperty Name="tmi_id" ColumnName="tmi_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="frequency">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.frequency">
+        <MappingFragment StoreEntitySet="frequency">
+          <ScalarProperty Name="fq_shortName" ColumnName="fq_shortName" />
+          <ScalarProperty Name="fq_deleteDate" ColumnName="fq_deleteDate" />
+          <ScalarProperty Name="fq_updateDate" ColumnName="fq_updateDate" />
+          <ScalarProperty Name="fq_registrationDate" ColumnName="fq_registrationDate" />
+          <ScalarProperty Name="fq_state" ColumnName="fq_state" />
+          <ScalarProperty Name="fq_name" ColumnName="fq_name" />
+          <ScalarProperty Name="fq_id" ColumnName="fq_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="maintenanceRoutine">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.maintenanceRoutine">
+        <MappingFragment StoreEntitySet="maintenanceRoutine">
+          <ScalarProperty Name="mr_referencePrice" ColumnName="mr_referencePrice" />
+          <ScalarProperty Name="mr_deleteDate" ColumnName="mr_deleteDate" />
+          <ScalarProperty Name="mr_updateDate" ColumnName="mr_updateDate" />
+          <ScalarProperty Name="mr_registrationDate" ColumnName="mr_registrationDate" />
+          <ScalarProperty Name="mr_state" ColumnName="mr_state" />
+          <ScalarProperty Name="fq_id" ColumnName="fq_id" />
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+          <ScalarProperty Name="mr_description" ColumnName="mr_description" />
+          <ScalarProperty Name="mr_name" ColumnName="mr_name" />
+          <ScalarProperty Name="mr_id" ColumnName="mr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceItemCategory">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.MaintenanceItemCategory">
+        <MappingFragment StoreEntitySet="MaintenanceItemCategory">
+          <ScalarProperty Name="mict_deleteDate" ColumnName="mict_deleteDate" />
+          <ScalarProperty Name="mict_updateDate" ColumnName="mict_updateDate" />
+          <ScalarProperty Name="mict_registrationDate" ColumnName="mict_registrationDate" />
+          <ScalarProperty Name="mict_state" ColumnName="mict_state" />
+          <ScalarProperty Name="mict_name" ColumnName="mict_name" />
+          <ScalarProperty Name="mict_id" ColumnName="mict_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceItemsByVehicleModels">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.MaintenanceItemsByVehicleModels">
+        <MappingFragment StoreEntitySet="MaintenanceItemsByVehicleModels">
+          <ScalarProperty Name="mivm_registrationDate" ColumnName="mivm_registrationDate" />
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+          <ScalarProperty Name="mi_id" ColumnName="mi_id" />
+          <ScalarProperty Name="mivm_id" ColumnName="mivm_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceItemsByVehicleTypes">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.MaintenanceItemsByVehicleTypes">
+        <MappingFragment StoreEntitySet="MaintenanceItemsByVehicleTypes">
+          <ScalarProperty Name="mivt_registrationDate" ColumnName="mivt_registrationDate" />
+          <ScalarProperty Name="vt_id" ColumnName="vt_id" />
+          <ScalarProperty Name="mi_id" ColumnName="mi_id" />
+          <ScalarProperty Name="mivt_id" ColumnName="mivt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemsByRoutines">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.ItemsByRoutines">
+        <MappingFragment StoreEntitySet="ItemsByRoutines">
+          <ScalarProperty Name="ibr_updateDate" ColumnName="ibr_updateDate" />
+          <ScalarProperty Name="ibr_registrationDate" ColumnName="ibr_registrationDate" />
+          <ScalarProperty Name="mi_amount" ColumnName="mi_amount" />
+          <ScalarProperty Name="mr_id" ColumnName="mr_id" />
+          <ScalarProperty Name="mi_id" ColumnName="mi_id" />
+          <ScalarProperty Name="ibr_id" ColumnName="ibr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="cntr_amountVehicles" ColumnName="cntr_amountVehicles" />
+          <ScalarProperty Name="cntr_deleteDate" ColumnName="cntr_deleteDate" />
+          <ScalarProperty Name="cntr_updateDate" ColumnName="cntr_updateDate" />
+          <ScalarProperty Name="cntr_registrationDate" ColumnName="cntr_registrationDate" />
+          <ScalarProperty Name="cntr_duration" ColumnName="cntr_duration" />
+          <ScalarProperty Name="cntr_endingDate" ColumnName="cntr_endingDate" />
+          <ScalarProperty Name="cntr_startingDate" ColumnName="cntr_startingDate" />
+          <ScalarProperty Name="cntr_amountOfMaintenances" ColumnName="cntr_amountOfMaintenances" />
+          <ScalarProperty Name="cntr_discountValue" ColumnName="cntr_discountValue" />
+          <ScalarProperty Name="dst_id" ColumnName="dst_id" />
+          <ScalarProperty Name="cntr_state" ColumnName="cntr_state" />
+          <ScalarProperty Name="cntrst_id" ColumnName="cntrst_id" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+          <ScalarProperty Name="cntr_observation" ColumnName="cntr_observation" />
+          <ScalarProperty Name="cntr_name" ColumnName="cntr_name" />
+          <ScalarProperty Name="cntr_code" ColumnName="cntr_code" />
+          <ScalarProperty Name="cntr_consecutive" ColumnName="cntr_consecutive" />
+          <ScalarProperty Name="cntr_id" ColumnName="cntr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractState">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.ContractState">
+        <MappingFragment StoreEntitySet="ContractState">
+          <ScalarProperty Name="cntrst_deleteDate" ColumnName="cntrst_deleteDate" />
+          <ScalarProperty Name="cntrst_updateDate" ColumnName="cntrst_updateDate" />
+          <ScalarProperty Name="cntrst_registrationDate" ColumnName="cntrst_registrationDate" />
+          <ScalarProperty Name="cntrst_state" ColumnName="cntrst_state" />
+          <ScalarProperty Name="cntrst_description" ColumnName="cntrst_description" />
+          <ScalarProperty Name="cntrst_name" ColumnName="cntrst_name" />
+          <ScalarProperty Name="cntrst_id" ColumnName="cntrst_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiscountType">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.DiscountType">
+        <MappingFragment StoreEntitySet="DiscountType">
+          <ScalarProperty Name="dst_deleteDate" ColumnName="dst_deleteDate" />
+          <ScalarProperty Name="dst_updateDate" ColumnName="dst_updateDate" />
+          <ScalarProperty Name="dst_registrationDate" ColumnName="dst_registrationDate" />
+          <ScalarProperty Name="dst_state" ColumnName="dst_state" />
+          <ScalarProperty Name="dst_name" ColumnName="dst_name" />
+          <ScalarProperty Name="dst_id" ColumnName="dst_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleModelsByContract">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.VehicleModelsByContract">
+        <MappingFragment StoreEntitySet="VehicleModelsByContract">
+          <ScalarProperty Name="vmcnt_registrationDate" ColumnName="vmcnt_registrationDate" />
+          <ScalarProperty Name="cntr_id" ColumnName="cntr_id" />
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+          <ScalarProperty Name="vmcnt_id" ColumnName="vmcnt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehiclesByContract">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.VehiclesByContract">
+        <MappingFragment StoreEntitySet="VehiclesByContract">
+          <ScalarProperty Name="cntr_id" ColumnName="cntr_id" />
+          <ScalarProperty Name="veh_id" ColumnName="veh_id" />
+          <ScalarProperty Name="vehcntr_id" ColumnName="vehcntr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

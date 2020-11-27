@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ec4286bfede4f69b32ea57858bae6f9" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_FleetServiceModel.areas" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.branch" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Cities" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Contact" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Countries" Width="1.5" PointX="1.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Dealer" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.DealerByDealerNerwork" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.DealerNetwork" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Departments" Width="1.5" PointX="1.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.jobTitle" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.JobTitlesClient" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_jobTitle_areas" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__branch__cli_id__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__branch__cty_id__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__branch__deal_id__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contact__bra_id__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Cities__dpt_id__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Client__cty_id__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contact__cty_id__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contact__cli_id__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contact__deal_id__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contact__jtcl_id__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Departmen__ctry___3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__DealerByD__deal___4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__DealerByD__dn_id__4CA06362" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Vehicle" Width="1.5" PointX="10.625" PointY="6.875" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.VehicleBrand" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.VehicleModel" Width="1.5" PointX="10.625" PointY="13.5" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.VehicleType" Width="1.5" PointX="8.375" PointY="13.75" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Vehicle__cli_id__1332DBDC" />        
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Vehicle__vm_id__123EB7A3" />        
+        <AssociationConnector Association="DB_FleetServiceModel.FK_vehiclemodel_vehicleBrand" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_vehicleModel_vehicleType" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.vehicleState" Width="1.5" PointX="10.375" PointY="1" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_vehicle_vehicleState" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.MaintenanceItem" Width="1.875" PointX="12.875" PointY="13.25" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.PresentationUnit" Width="1.5" PointX="10.625" PointY="18.375" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.TypeOfMaintenanceItem" Width="1.5" PointX="10.625" PointY="21.75" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Maintenan__pu_id__45BE5BA9" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Maintenan__tmi_i__44CA3770" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.frequency" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.maintenanceRoutine" Width="1.5" PointX="13.375" PointY="3.75" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_maintenanceRoutine_vehicleModel" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_maintenanceRoutine_frequency" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.MaintenanceItemCategory" Width="1.5" PointX="4.375" PointY="14" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_maintenanceItem_maintenanceItemCategory" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.MaintenanceItemsByVehicleModels" Width="1.5" PointX="15.125" PointY="14.875" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.MaintenanceItemsByVehicleTypes" Width="1.5" PointX="15.125" PointY="17.875" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Maintenan__mi_id__00DF2177" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Maintenan__mi_id__7B264821" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Maintenan__vm_id__7C1A6C5A" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Maintenan__vt_id__01D345B0" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.ItemsByRoutines" Width="1.5" PointX="15.625" PointY="9.375" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__ItemsByRo__mi_id__09746778" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__ItemsByRo__mi_id__0A688BB1" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__ItemsByRo__mr_id__0B5CAFEA" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__ItemsByRo__mr_id__0C50D423" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Contract" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.ContractState" Width="1.5" PointX="3.75" PointY="22.75" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.DiscountType" Width="1.5" PointX="3.75" PointY="26" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.VehicleModelsByContract" Width="1.5" PointX="12.875" PointY="13.5" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.VehiclesByContract" Width="1.5" PointX="14.875" PointY="5.375" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contract__cli_id__19AACF41" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contract__cntrst__1B9317B3" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contract__deal_i__1A9EF37A" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contract__dst_id__1C873BEC" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__VehicleMo__cntr___214BF109" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__VehiclesB__cntr___251C81ED" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__VehiclesB__veh_i__24285DB4" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__VehicleMo__vm_id__2057CCD0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

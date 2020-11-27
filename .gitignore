@@ -1,0 +1,7 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite

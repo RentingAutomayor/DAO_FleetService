@@ -10,3 +10,15 @@ D:\RepositoriosRenting\Acceso_datos_fleet_service\DAO_FleetService\obj\Debug\DAO
 D:\RepositoriosRenting\Acceso_datos_fleet_service\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CopyComplete
 D:\RepositoriosRenting\Acceso_datos_fleet_service\DAO_FleetService\obj\Debug\DAO_FleetService.dll
 D:\RepositoriosRenting\Acceso_datos_fleet_service\DAO_FleetService\obj\Debug\DAO_FleetService.pdb
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\DAO_FleetService.dll.config
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\DAO_FleetService.dll
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\DAO_FleetService.pdb
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\EntityFramework.dll
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\EntityFramework.SqlServer.dll
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\EntityFramework.xml
+D:\CASALLAS\DAO\DAO_FleetService\bin\Debug\EntityFramework.SqlServer.xml
+D:\CASALLAS\DAO\DAO_FleetService\obj\Debug\DAO_FleetService.csprojAssemblyReference.cache
+D:\CASALLAS\DAO\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CoreCompileInputs.cache
+D:\CASALLAS\DAO\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CopyComplete
+D:\CASALLAS\DAO\DAO_FleetService\obj\Debug\DAO_FleetService.dll
+D:\CASALLAS\DAO\DAO_FleetService\obj\Debug\DAO_FleetService.pdb

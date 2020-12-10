@@ -399,5 +399,68 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Actions">
+        <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="act_description" ColumnName="act_description" />
+          <ScalarProperty Name="act_name" ColumnName="act_name" />
+          <ScalarProperty Name="act_id" ColumnName="act_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupModule">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.GroupModule">
+        <MappingFragment StoreEntitySet="GroupModule">
+          <ScalarProperty Name="mdl_id" ColumnName="mdl_id" />
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="grpmdl_delete" ColumnName="grpmdl_delete" />
+          <ScalarProperty Name="grpmdl_update" ColumnName="grpmdl_update" />
+          <ScalarProperty Name="grpmdl_read" ColumnName="grpmdl_read" />
+          <ScalarProperty Name="grpmdl_create" ColumnName="grpmdl_create" />
+          <ScalarProperty Name="grpmdl_id" ColumnName="grpmdl_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupModuleAction">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.GroupModuleAction">
+        <MappingFragment StoreEntitySet="GroupModuleAction">
+          <ScalarProperty Name="act_id" ColumnName="act_id" />
+          <ScalarProperty Name="mdl_id" ColumnName="mdl_id" />
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="grpmdlact_id" ColumnName="grpmdlact_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Groups">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="grp_description" ColumnName="grp_description" />
+          <ScalarProperty Name="grp_name" ColumnName="grp_name" />
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Modules">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="mdl_state" ColumnName="mdl_state" />
+          <ScalarProperty Name="mdl_father" ColumnName="mdl_father" />
+          <ScalarProperty Name="mdl_description" ColumnName="mdl_description" />
+          <ScalarProperty Name="mdl_path" ColumnName="mdl_path" />
+          <ScalarProperty Name="mdl_name" ColumnName="mdl_name" />
+          <ScalarProperty Name="mdl_id" ColumnName="mdl_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="usr_password" ColumnName="usr_password" />
+          <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

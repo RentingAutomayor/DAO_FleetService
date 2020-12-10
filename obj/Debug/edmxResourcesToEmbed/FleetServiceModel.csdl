@@ -522,6 +522,36 @@
       <End Role="VehicleModel" EntitySet="VehicleModel" />
       <End Role="VehicleModelsByContract" EntitySet="VehicleModelsByContract" />
     </AssociationSet>
+    <EntitySet Name="Actions" EntityType="DB_FleetServiceModel.Actions" />
+    <EntitySet Name="GroupModule" EntityType="DB_FleetServiceModel.GroupModule" />
+    <EntitySet Name="GroupModuleAction" EntityType="DB_FleetServiceModel.GroupModuleAction" />
+    <EntitySet Name="Groups" EntityType="DB_FleetServiceModel.Groups" />
+    <EntitySet Name="Modules" EntityType="DB_FleetServiceModel.Modules" />
+    <EntitySet Name="Users" EntityType="DB_FleetServiceModel.Users" />
+    <AssociationSet Name="FK__GroupModu__act_i__690797E6" Association="DB_FleetServiceModel.FK__GroupModu__act_i__690797E6">
+      <End Role="Actions" EntitySet="Actions" />
+      <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupModu__grp_i__662B2B3B" Association="DB_FleetServiceModel.FK__GroupModu__grp_i__662B2B3B">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="GroupModule" EntitySet="GroupModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupModu__mdl_i__671F4F74" Association="DB_FleetServiceModel.FK__GroupModu__mdl_i__671F4F74">
+      <End Role="Modules" EntitySet="Modules" />
+      <End Role="GroupModule" EntitySet="GroupModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupModu__grp_i__65370702" Association="DB_FleetServiceModel.FK__GroupModu__grp_i__65370702">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupModu__mdl_i__681373AD" Association="DB_FleetServiceModel.FK__GroupModu__mdl_i__681373AD">
+      <End Role="Modules" EntitySet="Modules" />
+      <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__grp_id__6442E2C9" Association="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Vehicle">
     <Key>
@@ -1117,6 +1147,147 @@
       </Principal>
       <Dependent Role="VehicleModelsByContract">
         <PropertyRef Name="vm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Actions">
+    <Key>
+      <PropertyRef Name="act_id" />
+    </Key>
+    <Property Name="act_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="act_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="act_description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GroupModuleAction" Relationship="DB_FleetServiceModel.FK__GroupModu__act_i__690797E6" FromRole="Actions" ToRole="GroupModuleAction" />
+  </EntityType>
+  <EntityType Name="GroupModule">
+    <Key>
+      <PropertyRef Name="grpmdl_id" />
+    </Key>
+    <Property Name="grpmdl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grpmdl_create" Type="Boolean" />
+    <Property Name="grpmdl_read" Type="Boolean" />
+    <Property Name="grpmdl_update" Type="Boolean" />
+    <Property Name="grpmdl_delete" Type="Boolean" />
+    <Property Name="grp_id" Type="Int32" Nullable="false" />
+    <Property Name="mdl_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Groups" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__662B2B3B" FromRole="GroupModule" ToRole="Groups" />
+    <NavigationProperty Name="Modules" Relationship="DB_FleetServiceModel.FK__GroupModu__mdl_i__671F4F74" FromRole="GroupModule" ToRole="Modules" />
+  </EntityType>
+  <EntityType Name="GroupModuleAction">
+    <Key>
+      <PropertyRef Name="grpmdlact_id" />
+    </Key>
+    <Property Name="grpmdlact_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grp_id" Type="Int32" Nullable="false" />
+    <Property Name="mdl_id" Type="Int32" Nullable="false" />
+    <Property Name="act_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Actions" Relationship="DB_FleetServiceModel.FK__GroupModu__act_i__690797E6" FromRole="GroupModuleAction" ToRole="Actions" />
+    <NavigationProperty Name="Groups" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__65370702" FromRole="GroupModuleAction" ToRole="Groups" />
+    <NavigationProperty Name="Modules" Relationship="DB_FleetServiceModel.FK__GroupModu__mdl_i__681373AD" FromRole="GroupModuleAction" ToRole="Modules" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="grp_id" />
+    </Key>
+    <Property Name="grp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grp_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grp_description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GroupModule" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__662B2B3B" FromRole="Groups" ToRole="GroupModule" />
+    <NavigationProperty Name="GroupModuleAction" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__65370702" FromRole="Groups" ToRole="GroupModuleAction" />
+    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9" FromRole="Groups" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="mdl_id" />
+    </Key>
+    <Property Name="mdl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mdl_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mdl_path" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mdl_description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="mdl_father" Type="Int32" Nullable="false" />
+    <Property Name="mdl_state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="GroupModule" Relationship="DB_FleetServiceModel.FK__GroupModu__mdl_i__671F4F74" FromRole="Modules" ToRole="GroupModule" />
+    <NavigationProperty Name="GroupModuleAction" Relationship="DB_FleetServiceModel.FK__GroupModu__mdl_i__681373AD" FromRole="Modules" ToRole="GroupModuleAction" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="usr_id" />
+    </Key>
+    <Property Name="usr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usr_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usr_password" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="grp_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Groups" Relationship="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9" FromRole="Users" ToRole="Groups" />
+  </EntityType>
+  <Association Name="FK__GroupModu__act_i__690797E6">
+    <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.GroupModuleAction" Role="GroupModuleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actions">
+        <PropertyRef Name="act_id" />
+      </Principal>
+      <Dependent Role="GroupModuleAction">
+        <PropertyRef Name="act_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupModu__grp_i__662B2B3B">
+    <End Type="DB_FleetServiceModel.Groups" Role="Groups" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.GroupModule" Role="GroupModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="grp_id" />
+      </Principal>
+      <Dependent Role="GroupModule">
+        <PropertyRef Name="grp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupModu__mdl_i__671F4F74">
+    <End Type="DB_FleetServiceModel.Modules" Role="Modules" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.GroupModule" Role="GroupModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modules">
+        <PropertyRef Name="mdl_id" />
+      </Principal>
+      <Dependent Role="GroupModule">
+        <PropertyRef Name="mdl_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupModu__grp_i__65370702">
+    <End Type="DB_FleetServiceModel.Groups" Role="Groups" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.GroupModuleAction" Role="GroupModuleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="grp_id" />
+      </Principal>
+      <Dependent Role="GroupModuleAction">
+        <PropertyRef Name="grp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupModu__mdl_i__681373AD">
+    <End Type="DB_FleetServiceModel.Modules" Role="Modules" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.GroupModuleAction" Role="GroupModuleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modules">
+        <PropertyRef Name="mdl_id" />
+      </Principal>
+      <Dependent Role="GroupModuleAction">
+        <PropertyRef Name="mdl_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__grp_id__6442E2C9">
+    <End Type="DB_FleetServiceModel.Groups" Role="Groups" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="grp_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="grp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

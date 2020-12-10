@@ -56,5 +56,11 @@ namespace DAO_FleetService
         public virtual DbSet<DiscountType> DiscountType { get; set; }
         public virtual DbSet<VehicleModelsByContract> VehicleModelsByContract { get; set; }
         public virtual DbSet<VehiclesByContract> VehiclesByContract { get; set; }
+        public virtual DbSet<Actions> Actions { get; set; }
+        public virtual DbSet<GroupModule> GroupModule { get; set; }
+        public virtual DbSet<GroupModuleAction> GroupModuleAction { get; set; }
+        public virtual DbSet<Groups> Groups { get; set; }
+        public virtual DbSet<Modules> Modules { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

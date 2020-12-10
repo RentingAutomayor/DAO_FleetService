@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8ec4286bfede4f69b32ea57858bae6f9" Name="Diagram1">
+      <Diagram DiagramId="8ec4286bfede4f69b32ea57858bae6f9" Name="Diagram1" ZoomLevel="52">
         <EntityTypeShape EntityType="DB_FleetServiceModel.areas" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_FleetServiceModel.branch" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_FleetServiceModel.Cities" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
@@ -76,6 +76,18 @@
         <AssociationConnector Association="DB_FleetServiceModel.FK__VehiclesB__cntr___251C81ED" />
         <AssociationConnector Association="DB_FleetServiceModel.FK__VehiclesB__veh_i__24285DB4" />
         <AssociationConnector Association="DB_FleetServiceModel.FK__VehicleMo__vm_id__2057CCD0" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Actions" Width="1.5" PointX="26.5" PointY="22.5" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.GroupModule" Width="1.5" PointX="20.125" PointY="16.25" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.GroupModuleAction" Width="1.5" PointX="20" PointY="19.875" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Groups" Width="1.5" PointX="17.125" PointY="21.375" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Modules" Width="1.5" PointX="24.25" PointY="15" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Users" Width="1.5" PointX="19.625" PointY="24.125" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__act_i__690797E6" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__grp_i__662B2B3B" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__mdl_i__671F4F74" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__grp_i__65370702" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__mdl_i__681373AD" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

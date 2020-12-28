@@ -62,5 +62,6 @@ namespace DAO_FleetService
         public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<Modules> Modules { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
     }
 }

@@ -88,6 +88,10 @@
         <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__grp_i__65370702" />
         <AssociationConnector Association="DB_FleetServiceModel.FK__GroupModu__mdl_i__681373AD" />
         <AssociationConnector Association="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.Company" Width="1.5" PointX="15.375" PointY="0.875" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Users__cli_id__02C769E9" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

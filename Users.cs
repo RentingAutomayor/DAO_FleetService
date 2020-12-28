@@ -18,7 +18,15 @@ namespace DAO_FleetService
         public string usr_name { get; set; }
         public string usr_password { get; set; }
         public int grp_id { get; set; }
+        public string usr_firstName { get; set; }
+        public string usr_lastName { get; set; }
+        public Nullable<int> cli_id { get; set; }
+        public Nullable<int> deal_id { get; set; }
+        public Nullable<int> cpn_id { get; set; }
     
         public virtual Groups Groups { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual Dealer Dealer { get; set; }
     }
 }

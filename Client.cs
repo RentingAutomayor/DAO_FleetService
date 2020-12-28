@@ -21,6 +21,7 @@ namespace DAO_FleetService
             this.Contact = new HashSet<Contact>();
             this.Vehicle = new HashSet<Vehicle>();
             this.Contract = new HashSet<Contract>();
+            this.Users = new HashSet<Users>();
         }
     
         public int cli_id { get; set; }
@@ -45,5 +46,7 @@ namespace DAO_FleetService
         public virtual ICollection<Vehicle> Vehicle { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contract> Contract { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

@@ -68,6 +68,9 @@
     <Compile Include="Client.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contact.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>

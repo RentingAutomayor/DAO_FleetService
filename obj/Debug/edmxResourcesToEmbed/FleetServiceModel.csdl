@@ -63,6 +63,7 @@
     <Property Name="cli_deleteDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Vehicle" Relationship="DB_FleetServiceModel.FK__Vehicle__cli_id__1332DBDC" FromRole="Client" ToRole="Vehicle" />
     <NavigationProperty Name="Contract" Relationship="DB_FleetServiceModel.FK__Contract__cli_id__19AACF41" FromRole="Client" ToRole="Contract" />
+    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__cli_id__02C769E9" FromRole="Client" ToRole="Users" />
   </EntityType>
   <EntityType Name="Contact">
     <Key>
@@ -112,6 +113,7 @@
     <Property Name="deal_updateDate" Type="DateTime" Precision="3" />
     <Property Name="deal_deleteDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Contract" Relationship="DB_FleetServiceModel.FK__Contract__deal_i__1A9EF37A" FromRole="Dealer" ToRole="Contract" />
+    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B" FromRole="Dealer" ToRole="Users" />
   </EntityType>
   <EntityType Name="DealerByDealerNerwork">
     <Key>
@@ -550,6 +552,19 @@
     </AssociationSet>
     <AssociationSet Name="FK__Users__grp_id__6442E2C9" Association="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9">
       <End Role="Groups" EntitySet="Groups" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Company" EntityType="DB_FleetServiceModel.Company" />
+    <AssociationSet Name="FK__Users__cli_id__02C769E9" Association="DB_FleetServiceModel.FK__Users__cli_id__02C769E9">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__cpn_id__03BB8E22" Association="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__deal_id__04AFB25B" Association="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B">
+      <End Role="Dealer" EntitySet="Dealer" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
@@ -1218,6 +1233,14 @@
     <Property Name="usr_password" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="grp_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Groups" Relationship="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9" FromRole="Users" ToRole="Groups" />
+    <Property Name="usr_firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usr_lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cli_id" Type="Int32" />
+    <Property Name="deal_id" Type="Int32" />
+    <Property Name="cpn_id" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="DB_FleetServiceModel.FK__Users__cli_id__02C769E9" FromRole="Users" ToRole="Client" />
+    <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22" FromRole="Users" ToRole="Company" />
+    <NavigationProperty Name="Dealer" Relationship="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B" FromRole="Users" ToRole="Dealer" />
   </EntityType>
   <Association Name="FK__GroupModu__act_i__690797E6">
     <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />
@@ -1288,6 +1311,52 @@
       </Principal>
       <Dependent Role="Users">
         <PropertyRef Name="grp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="cpn_id" />
+    </Key>
+    <Property Name="cpn_id" Type="Int32" Nullable="false" />
+    <Property Name="cpn_razonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpn_nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpn_state" Type="Boolean" />
+    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22" FromRole="Company" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK__Users__cli_id__02C769E9">
+    <End Type="DB_FleetServiceModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cli_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="cli_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__cpn_id__03BB8E22">
+    <End Type="DB_FleetServiceModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="cpn_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="cpn_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__deal_id__04AFB25B">
+    <End Type="DB_FleetServiceModel.Dealer" Role="Dealer" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="deal_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="deal_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

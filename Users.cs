@@ -23,6 +23,7 @@ namespace DAO_FleetService
         public Nullable<int> cli_id { get; set; }
         public Nullable<int> deal_id { get; set; }
         public Nullable<int> cpn_id { get; set; }
+        public string email { get; set; }
     
         public virtual Groups Groups { get; set; }
         public virtual Client Client { get; set; }

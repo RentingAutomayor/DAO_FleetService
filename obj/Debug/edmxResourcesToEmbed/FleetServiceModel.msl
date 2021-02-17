@@ -455,10 +455,25 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="usr_lastName" ColumnName="usr_lastName" />
+          <ScalarProperty Name="usr_firstName" ColumnName="usr_firstName" />
           <ScalarProperty Name="grp_id" ColumnName="grp_id" />
           <ScalarProperty Name="usr_password" ColumnName="usr_password" />
           <ScalarProperty Name="usr_name" ColumnName="usr_name" />
           <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="cpn_state" ColumnName="cpn_state" />
+          <ScalarProperty Name="cpn_nit" ColumnName="cpn_nit" />
+          <ScalarProperty Name="cpn_razonSocial" ColumnName="cpn_razonSocial" />
+          <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

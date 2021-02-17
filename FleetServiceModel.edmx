@@ -360,6 +360,7 @@
           <Property Name="cli_id" Type="int" />
           <Property Name="deal_id" Type="int" />
           <Property Name="cpn_id" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Vehicle">
           <Key>
@@ -2512,6 +2513,7 @@
           <NavigationProperty Name="Client" Relationship="DB_FleetServiceModel.FK__Users__cli_id__02C769E9" FromRole="Users" ToRole="Client" />
           <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22" FromRole="Users" ToRole="Company" />
           <NavigationProperty Name="Dealer" Relationship="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B" FromRole="Users" ToRole="Dealer" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__GroupModu__act_i__690797E6">
           <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />
@@ -3091,6 +3093,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
                 <ScalarProperty Name="deal_id" ColumnName="deal_id" />
                 <ScalarProperty Name="cli_id" ColumnName="cli_id" />

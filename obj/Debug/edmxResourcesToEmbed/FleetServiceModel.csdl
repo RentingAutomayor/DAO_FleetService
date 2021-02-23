@@ -1241,6 +1241,7 @@
     <NavigationProperty Name="Client" Relationship="DB_FleetServiceModel.FK__Users__cli_id__02C769E9" FromRole="Users" ToRole="Client" />
     <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22" FromRole="Users" ToRole="Company" />
     <NavigationProperty Name="Dealer" Relationship="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B" FromRole="Users" ToRole="Dealer" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__GroupModu__act_i__690797E6">
     <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />

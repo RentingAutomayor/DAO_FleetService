@@ -355,6 +355,7 @@
     <Property Name="cli_id" Type="int" />
     <Property Name="deal_id" Type="int" />
     <Property Name="cpn_id" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Vehicle">
     <Key>

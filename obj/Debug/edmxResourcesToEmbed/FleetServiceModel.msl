@@ -455,6 +455,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
           <ScalarProperty Name="deal_id" ColumnName="deal_id" />
           <ScalarProperty Name="cli_id" ColumnName="cli_id" />

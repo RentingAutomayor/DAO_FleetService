@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="areas.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
@@ -63,6 +66,9 @@
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.cs">
@@ -92,6 +98,12 @@
     <Compile Include="DiscountType.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FieldsToOperate.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialInformationByClient.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FleetServiceModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +122,12 @@
     <Compile Include="frequency.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GroupModuleAction.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groups.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ItemsByRoutines.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
@@ -117,6 +135,9 @@
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="JobTitlesClient.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_TRX.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MaintenanceItem.cs">
@@ -134,11 +155,128 @@
     <Compile Include="maintenanceRoutine.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movement.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovementType.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="observationsByTransaction.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Operations.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PresentationUnit.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PricesByContract.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PricesByDealer.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RulesByMovement.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_AMOUNT_WORKORDERS_BY_CLIENT_AND_MONTH_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_AMOUNT_WORKORDERS_BY_DEALER_AND_MONTH_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_CLIENTS_WITHOUT_QUOTA_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_COUNT_TOTAL_WORKORDER_BY_DEALER_AND_CLIENT_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_FINANCIAL_INFORMATION_BY_CLIENT_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_TRANSACTIONS_BY_CLIENT_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_TRANSACTIONS_BY_CLIENT_Result1.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_TRANSACTIONS_TODAY1_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_TRANSACTIONS_TODAY_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_VEHICLES_WITHOUT_CONTRACT_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_APPROVED_BY_VEHICLE_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_BY_DEALER1_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_BY_DEALER2_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_BY_DEALER3_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_BY_DEALER_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_CANCELED_BY_VEHICLE_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_FINISHED_BY_VEHICLE_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_PENDING_BY_VEHICLE_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_TO_APPROVE_BY_CLIENT1_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_TO_APPROVE_BY_CLIENT_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STRPRC_GET_WORKORDERS_VALUES_BY_MONTH_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Taxes.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaxesByMaintenanceItem.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transactionDetail.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transactionItems.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transactions.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transactionState.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TypeOfMaintenanceItem.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vehicle.cs">

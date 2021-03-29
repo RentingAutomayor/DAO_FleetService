@@ -25,6 +25,7 @@ namespace DAO_FleetService
         public int grp_id { get; set; }
         public string grp_name { get; set; }
         public string grp_description { get; set; }
+        public Nullable<bool> activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupModule> GroupModule { get; set; }

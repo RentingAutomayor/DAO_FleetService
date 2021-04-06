@@ -1173,6 +1173,7 @@
     <Property Name="act_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="act_description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="GroupModuleAction" Relationship="DB_FleetServiceModel.FK__GroupModu__act_i__690797E6" FromRole="Actions" ToRole="GroupModuleAction" />
+    <Property Name="activo" Type="Boolean" />
   </EntityType>
   <EntityType Name="GroupModule">
     <Key>
@@ -1210,6 +1211,7 @@
     <NavigationProperty Name="GroupModule" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__662B2B3B" FromRole="Groups" ToRole="GroupModule" />
     <NavigationProperty Name="GroupModuleAction" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__65370702" FromRole="Groups" ToRole="GroupModuleAction" />
     <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__grp_id__6442E2C9" FromRole="Groups" ToRole="Users" />
+    <Property Name="activo" Type="Boolean" />
   </EntityType>
   <EntityType Name="Modules">
     <Key>
@@ -1242,6 +1244,7 @@
     <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__03BB8E22" FromRole="Users" ToRole="Company" />
     <NavigationProperty Name="Dealer" Relationship="DB_FleetServiceModel.FK__Users__deal_id__04AFB25B" FromRole="Users" ToRole="Dealer" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
   </EntityType>
   <Association Name="FK__GroupModu__act_i__690797E6">
     <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />

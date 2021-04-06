@@ -402,6 +402,7 @@
     <EntitySetMapping Name="Actions">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.Actions">
         <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="activo" ColumnName="activo" />
           <ScalarProperty Name="act_description" ColumnName="act_description" />
           <ScalarProperty Name="act_name" ColumnName="act_name" />
           <ScalarProperty Name="act_id" ColumnName="act_id" />
@@ -434,6 +435,7 @@
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.Groups">
         <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="activo" ColumnName="activo" />
           <ScalarProperty Name="grp_description" ColumnName="grp_description" />
           <ScalarProperty Name="grp_name" ColumnName="grp_name" />
           <ScalarProperty Name="grp_id" ColumnName="grp_id" />
@@ -455,6 +457,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="activo" ColumnName="activo" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
           <ScalarProperty Name="deal_id" ColumnName="deal_id" />

@@ -80,6 +80,9 @@
     <Compile Include="ContractState.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ContractualInformationByClient.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Countries.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
@@ -180,6 +183,9 @@
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuotaType.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RulesByMovement.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>

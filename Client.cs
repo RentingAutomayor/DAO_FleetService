@@ -34,6 +34,8 @@ public partial class Client
 
         this.transactions = new HashSet<transactions>();
 
+        this.ContractualInformationByClient = new HashSet<ContractualInformationByClient>();
+
     }
 
 
@@ -88,6 +90,10 @@ public partial class Client
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<transactions> transactions { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<ContractualInformationByClient> ContractualInformationByClient { get; set; }
 
 }
 

@@ -143,6 +143,10 @@ public partial class DB_FleetServiceEntities : DbContext
 
     public virtual DbSet<TaxesByMaintenanceItem> TaxesByMaintenanceItem { get; set; }
 
+    public virtual DbSet<ContractualInformationByClient> ContractualInformationByClient { get; set; }
+
+    public virtual DbSet<QuotaType> QuotaType { get; set; }
+
 
     public virtual ObjectResult<STRPRC_GET_CLIENTS_WITHOUT_QUOTA_Result> STRPRC_GET_CLIENTS_WITHOUT_QUOTA()
     {

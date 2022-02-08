@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8ec4286bfede4f69b32ea57858bae6f9" Name="Diagram1">
+      <Diagram DiagramId="8ec4286bfede4f69b32ea57858bae6f9" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="DB_FleetServiceModel.areas" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_FleetServiceModel.branch" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_FleetServiceModel.Cities" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
@@ -144,6 +144,11 @@
         <AssociationConnector Association="DB_FleetServiceModel.FK__TaxesByMa__tax_i__10AB74EC" />
         <AssociationConnector Association="DB_FleetServiceModel.FK_observations_users" />
         <AssociationConnector Association="DB_FleetServiceModel.FK_USU_ENDDING" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.ContractualInformationByClient" Width="1.5" PointX="23.875" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.QuotaType" Width="1.5" PointX="21.625" PointY="2.75" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

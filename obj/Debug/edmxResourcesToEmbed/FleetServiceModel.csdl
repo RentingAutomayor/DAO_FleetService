@@ -66,6 +66,7 @@
     <NavigationProperty Name="Contract" Relationship="DB_FleetServiceModel.FK__Contract__cli_id__19AACF41" FromRole="Client" ToRole="Contract" />
     <NavigationProperty Name="FinancialInformationByClient" Relationship="DB_FleetServiceModel.FK__Financial__cli_i__7908F585" FromRole="Client" ToRole="FinancialInformationByClient" />
     <NavigationProperty Name="transactions" Relationship="DB_FleetServiceModel.fk_transactions_client" FromRole="Client" ToRole="transactions" />
+    <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E" FromRole="Client" ToRole="ContractualInformationByClient" />
   </EntityType>
   <EntityType Name="Contact">
     <Key>
@@ -855,6 +856,20 @@
       <Parameter Name="INI_DATE" Mode="In" Type="DateTime" />
       <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <EntitySet Name="ContractualInformationByClient" EntityType="DB_FleetServiceModel.ContractualInformationByClient" />
+    <EntitySet Name="QuotaType" EntityType="DB_FleetServiceModel.QuotaType" />
+    <AssociationSet Name="FK__Contractu__cli_i__5B78929E" Association="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contractu__qt_id__5C6CB6D7" Association="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7">
+      <End Role="QuotaType" EntitySet="QuotaType" />
+      <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contractu__usr_i__5D60DB10" Association="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Vehicle">
     <Key>
@@ -1792,6 +1807,7 @@
     <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__7ABC33CD" FromRole="Users" ToRole="Company" />
     <NavigationProperty Name="observationsByTransaction" Relationship="DB_FleetServiceModel.FK_observations_users" FromRole="Users" ToRole="observationsByTransaction" />
     <NavigationProperty Name="transactionDetail" Relationship="DB_FleetServiceModel.FK_USU_ENDDING" FromRole="Users" ToRole="transactionDetail" />
+    <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" FromRole="Users" ToRole="ContractualInformationByClient" />
   </EntityType>
   <Association Name="FK__GroupModu__act_i__61F08603">
     <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />
@@ -2642,4 +2658,76 @@
     <Property Type="String" Name="Placa" Nullable="true" MaxLength="10" />
     <Property Type="Int32" Name="Cantidad" Nullable="true" />
   </ComplexType>
+  <EntityType Name="ContractualInformationByClient">
+    <Key>
+      <PropertyRef Name="cntInf_id" />
+    </Key>
+    <Property Name="cntInf_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cli_id" Type="Int32" Nullable="false" />
+    <Property Name="cntInf_contractCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cntInf_serviceInitDate" Type="DateTime" Precision="3" />
+    <Property Name="cntInf_serviceEndDate" Type="DateTime" Precision="3" />
+    <Property Name="cntInf_quotaApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="cntInf_quotaEndingDate" Type="DateTime" Precision="3" />
+    <Property Name="qt_id" Type="Int32" />
+    <Property Name="cntInf_paymentAgreement" Type="Int16" />
+    <Property Name="cntInf_adminPercentage" Type="Byte" />
+    <Property Name="usr_id" Type="Int32" Nullable="false" />
+    <Property Name="cntInf_state" Type="Boolean" />
+    <Property Name="cntInf_registrationDate" Type="DateTime" Precision="3" />
+    <Property Name="cntInf_updateDate" Type="DateTime" Precision="3" />
+    <Property Name="cntInf_deleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E" FromRole="ContractualInformationByClient" ToRole="Client" />
+    <NavigationProperty Name="QuotaType" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="ContractualInformationByClient" ToRole="QuotaType" />
+    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" FromRole="ContractualInformationByClient" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="QuotaType">
+    <Key>
+      <PropertyRef Name="qt_id" />
+    </Key>
+    <Property Name="qt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="qt_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="qt_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="qt_state" Type="Boolean" />
+    <Property Name="qt_registrationDate" Type="DateTime" Precision="3" />
+    <Property Name="qt_updateDate" Type="DateTime" Precision="3" />
+    <Property Name="qt_deleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="QuotaType" ToRole="ContractualInformationByClient" />
+  </EntityType>
+  <Association Name="FK__Contractu__cli_i__5B78929E">
+    <End Type="DB_FleetServiceModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cli_id" />
+      </Principal>
+      <Dependent Role="ContractualInformationByClient">
+        <PropertyRef Name="cli_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contractu__qt_id__5C6CB6D7">
+    <End Type="DB_FleetServiceModel.QuotaType" Role="QuotaType" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuotaType">
+        <PropertyRef Name="qt_id" />
+      </Principal>
+      <Dependent Role="ContractualInformationByClient">
+        <PropertyRef Name="qt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contractu__usr_i__5D60DB10">
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="usr_id" />
+      </Principal>
+      <Dependent Role="ContractualInformationByClient">
+        <PropertyRef Name="usr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

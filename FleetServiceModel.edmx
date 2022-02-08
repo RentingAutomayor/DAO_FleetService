@@ -127,6 +127,26 @@
           <Property Name="cntrst_updateDate" Type="datetime" />
           <Property Name="cntrst_deleteDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="ContractualInformationByClient">
+          <Key>
+            <PropertyRef Name="cntInf_id" />
+          </Key>
+          <Property Name="cntInf_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cli_id" Type="int" Nullable="false" />
+          <Property Name="cntInf_contractCode" Type="varchar" MaxLength="50" />
+          <Property Name="cntInf_serviceInitDate" Type="datetime" />
+          <Property Name="cntInf_serviceEndDate" Type="datetime" />
+          <Property Name="cntInf_quotaApprovalDate" Type="datetime" />
+          <Property Name="cntInf_quotaEndingDate" Type="datetime" />
+          <Property Name="qt_id" Type="int" />
+          <Property Name="cntInf_paymentAgreement" Type="smallint" />
+          <Property Name="cntInf_adminPercentage" Type="tinyint" />
+          <Property Name="usr_id" Type="int" Nullable="false" />
+          <Property Name="cntInf_state" Type="bit" />
+          <Property Name="cntInf_registrationDate" Type="datetime" />
+          <Property Name="cntInf_updateDate" Type="datetime" />
+          <Property Name="cntInf_deleteDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="Countries">
           <Key>
             <PropertyRef Name="ctry_id" />
@@ -443,6 +463,18 @@
           <Property Name="pbd_updateDate" Type="datetime" />
           <Property Name="pbd_deleteDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="QuotaType">
+          <Key>
+            <PropertyRef Name="qt_id" />
+          </Key>
+          <Property Name="qt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qt_name" Type="varchar" MaxLength="50" />
+          <Property Name="qt_description" Type="varchar" MaxLength="255" />
+          <Property Name="qt_state" Type="bit" />
+          <Property Name="qt_registrationDate" Type="datetime" />
+          <Property Name="qt_updateDate" Type="datetime" />
+          <Property Name="qt_deleteDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="RulesByMovement">
           <Key>
             <PropertyRef Name="rlm_id" />
@@ -458,16 +490,6 @@
           <Property Name="rlm_registrationDate" Type="datetime" />
           <Property Name="rlm_updateDate" Type="datetime" />
           <Property Name="rlm_deleteDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Taxes">
           <Key>
@@ -667,7 +689,7 @@
           <Property Name="vt_updateDate" Type="datetime" />
           <Property Name="vt_deleteDate" Type="datetime" />
         </EntityType>
-        <Association Name="FK__branch__cli_id__5CD6CB2B">
+        <Association Name="FK__branch__cli_id__4E53A1AA">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="branch" Type="Self.branch" Multiplicity="*" />
           <ReferentialConstraint>
@@ -679,7 +701,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__branch__cty_id__5DCAEF64">
+        <Association Name="FK__branch__cty_id__4F47C5E3">
           <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
           <End Role="branch" Type="Self.branch" Multiplicity="*" />
           <ReferentialConstraint>
@@ -691,7 +713,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__branch__deal_id__5EBF139D">
+        <Association Name="FK__branch__deal_id__503BEA1C">
           <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
           <End Role="branch" Type="Self.branch" Multiplicity="*" />
           <ReferentialConstraint>
@@ -703,7 +725,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cities__dpt_id__3E52440B">
+        <Association Name="FK__Cities__dpt_id__51300E55">
           <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
           <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
           <ReferentialConstraint>
@@ -715,7 +737,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Client__cty_id__4316F928">
+        <Association Name="FK__Client__cty_id__5224328E">
           <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
@@ -727,7 +749,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contact__bra_id__6D0D32F4">
+        <Association Name="FK__Contact__bra_id__531856C7">
           <End Role="branch" Type="Self.branch" Multiplicity="0..1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -739,7 +761,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contact__cli_id__6FE99F9F">
+        <Association Name="FK__Contact__cli_id__540C7B00">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -751,7 +773,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contact__cty_id__6E01572D">
+        <Association Name="FK__Contact__cty_id__55009F39">
           <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -763,7 +785,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contact__deal_id__70DDC3D8">
+        <Association Name="FK__Contact__deal_id__55F4C372">
           <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -775,7 +797,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contact__jtcl_id__6EF57B66">
+        <Association Name="FK__Contact__jtcl_id__56E8E7AB">
           <End Role="JobTitlesClient" Type="Self.JobTitlesClient" Multiplicity="0..1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -787,7 +809,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contract__cli_id__19AACF41">
+        <Association Name="FK__Contract__cli_id__57DD0BE4">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -799,7 +821,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contract__cntrst__1B9317B3">
+        <Association Name="FK__Contract__cntrst__58D1301D">
           <End Role="ContractState" Type="Self.ContractState" Multiplicity="0..1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -811,7 +833,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contract__deal_i__1A9EF37A">
+        <Association Name="FK__Contract__deal_i__59C55456">
           <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -823,7 +845,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contract__dst_id__1C873BEC">
+        <Association Name="FK__Contract__dst_id__5AB9788F">
           <End Role="DiscountType" Type="Self.DiscountType" Multiplicity="0..1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -835,7 +857,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DealerByD__deal___4D94879B">
+        <Association Name="FK__Contractu__cli_i__5B78929E">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="ContractualInformationByClient" Type="Self.ContractualInformationByClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="ContractualInformationByClient">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contractu__qt_id__5C6CB6D7">
+          <End Role="QuotaType" Type="Self.QuotaType" Multiplicity="0..1" />
+          <End Role="ContractualInformationByClient" Type="Self.ContractualInformationByClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuotaType">
+              <PropertyRef Name="qt_id" />
+            </Principal>
+            <Dependent Role="ContractualInformationByClient">
+              <PropertyRef Name="qt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contractu__usr_i__5D60DB10">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ContractualInformationByClient" Type="Self.ContractualInformationByClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="usr_id" />
+            </Principal>
+            <Dependent Role="ContractualInformationByClient">
+              <PropertyRef Name="usr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DealerByD__deal___5BAD9CC8">
           <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
           <End Role="DealerByDealerNerwork" Type="Self.DealerByDealerNerwork" Multiplicity="*" />
           <ReferentialConstraint>
@@ -847,7 +905,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DealerByD__dn_id__4CA06362">
+        <Association Name="FK__DealerByD__dn_id__5CA1C101">
           <End Role="DealerNetwork" Type="Self.DealerNetwork" Multiplicity="0..1" />
           <End Role="DealerByDealerNerwork" Type="Self.DealerByDealerNerwork" Multiplicity="*" />
           <ReferentialConstraint>
@@ -859,7 +917,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Departmen__ctry___3A81B327">
+        <Association Name="FK__Departmen__ctry___5D95E53A">
           <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
           <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -871,7 +929,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Financial__cli_i__7908F585">
+        <Association Name="FK__Financial__cli_i__5E8A0973">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="FinancialInformationByClient" Type="Self.FinancialInformationByClient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -883,7 +941,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__act_i__61F08603">
+        <Association Name="FK__GroupModu__act_i__5F7E2DAC">
           <End Role="Actions" Type="Self.Actions" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -895,7 +953,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__act_i__6B79F03D">
+        <Association Name="FK__GroupModu__act_i__607251E5">
           <End Role="Actions" Type="Self.Actions" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -907,7 +965,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__act_i__6F4A8121">
+        <Association Name="FK__GroupModu__act_i__6166761E">
           <End Role="Actions" Type="Self.Actions" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -919,7 +977,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__grp_i__62E4AA3C">
+        <Association Name="FK__GroupModu__grp_i__625A9A57">
           <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -931,7 +989,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__grp_i__6C6E1476">
+        <Association Name="FK__GroupModu__grp_i__634EBE90">
           <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -943,7 +1001,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__grp_i__703EA55A">
+        <Association Name="FK__GroupModu__grp_i__6442E2C9">
           <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -955,7 +1013,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__mdl_i__6D6238AF">
+        <Association Name="FK__GroupModu__mdl_i__65370702">
           <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -967,7 +1025,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GroupModu__mdl_i__7132C993">
+        <Association Name="FK__GroupModu__mdl_i__662B2B3B">
           <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
           <End Role="GroupModuleAction" Type="Self.GroupModuleAction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -979,7 +1037,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemsByRo__mi_id__09746778">
+        <Association Name="FK__ItemsByRo__mi_id__671F4F74">
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
           <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
           <ReferentialConstraint>
@@ -991,7 +1049,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemsByRo__mi_id__0A688BB1">
+        <Association Name="FK__ItemsByRo__mi_id__681373AD">
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
           <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1003,7 +1061,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemsByRo__mr_id__0B5CAFEA">
+        <Association Name="FK__ItemsByRo__mr_id__690797E6">
           <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="0..1" />
           <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1015,7 +1073,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemsByRo__mr_id__0C50D423">
+        <Association Name="FK__ItemsByRo__mr_id__69FBBC1F">
           <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="0..1" />
           <End Role="ItemsByRoutines" Type="Self.ItemsByRoutines" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1027,7 +1085,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LOG_TRX__trx_id__220B0B18">
+        <Association Name="FK__LOG_TRX__trx_id__6BE40491">
           <End Role="transactions" Type="Self.transactions" Multiplicity="0..1" />
           <End Role="LOG_TRX" Type="Self.LOG_TRX" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1039,19 +1097,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maintenan__mi_id__00DF2177">
-          <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
-          <End Role="MaintenanceItemsByVehicleTypes" Type="Self.MaintenanceItemsByVehicleTypes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MaintenanceItem">
-              <PropertyRef Name="mi_id" />
-            </Principal>
-            <Dependent Role="MaintenanceItemsByVehicleTypes">
-              <PropertyRef Name="mi_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Maintenan__mi_id__7B264821">
+        <Association Name="FK__Maintenan__mi_id__70A8B9AE">
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
           <End Role="MaintenanceItemsByVehicleModels" Type="Self.MaintenanceItemsByVehicleModels" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1063,7 +1109,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maintenan__pu_id__45BE5BA9">
+        <Association Name="FK__Maintenan__mi_id__72910220">
+          <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
+          <End Role="MaintenanceItemsByVehicleTypes" Type="Self.MaintenanceItemsByVehicleTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceItem">
+              <PropertyRef Name="mi_id" />
+            </Principal>
+            <Dependent Role="MaintenanceItemsByVehicleTypes">
+              <PropertyRef Name="mi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintenan__pu_id__6CD828CA">
           <End Role="PresentationUnit" Type="Self.PresentationUnit" Multiplicity="1" />
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1075,7 +1133,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maintenan__tmi_i__44CA3770">
+        <Association Name="FK__Maintenan__tmi_i__6DCC4D03">
           <End Role="TypeOfMaintenanceItem" Type="Self.TypeOfMaintenanceItem" Multiplicity="1" />
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1087,7 +1145,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maintenan__vm_id__7C1A6C5A">
+        <Association Name="FK__Maintenan__vm_id__719CDDE7">
           <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
           <End Role="MaintenanceItemsByVehicleModels" Type="Self.MaintenanceItemsByVehicleModels" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1099,7 +1157,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maintenan__vt_id__01D345B0">
+        <Association Name="FK__Maintenan__vt_id__73852659">
           <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="0..1" />
           <End Role="MaintenanceItemsByVehicleTypes" Type="Self.MaintenanceItemsByVehicleTypes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1111,7 +1169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Movement__m_dele__59904A2C">
+        <Association Name="FK__Movement__mtp_id__76619304">
           <End Role="MovementType" Type="Self.MovementType" Multiplicity="0..1" />
           <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1123,7 +1181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__observati__trx_i__74444068">
+        <Association Name="FK__observati__trx_i__7755B73D">
           <End Role="transactions" Type="Self.transactions" Multiplicity="0..1" />
           <End Role="observationsByTransaction" Type="Self.observationsByTransaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1135,19 +1193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PricesByC__mi_id__3FD07829">
-          <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
-          <End Role="PricesByContract" Type="Self.PricesByContract" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MaintenanceItem">
-              <PropertyRef Name="mi_id" />
-            </Principal>
-            <Dependent Role="PricesByContract">
-              <PropertyRef Name="mi_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PricesByC__pbc_d__3EDC53F0">
+        <Association Name="FK__PricesByC__cntr___7A3223E8">
           <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
           <End Role="PricesByContract" Type="Self.PricesByContract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1159,7 +1205,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PricesByD__deal___3B0BC30C">
+        <Association Name="FK__PricesByC__mi_id__793DFFAF">
+          <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
+          <End Role="PricesByContract" Type="Self.PricesByContract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceItem">
+              <PropertyRef Name="mi_id" />
+            </Principal>
+            <Dependent Role="PricesByContract">
+              <PropertyRef Name="mi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PricesByD__deal___7B264821">
           <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
           <End Role="PricesByDealer" Type="Self.PricesByDealer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1171,7 +1229,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PricesByD__mi_id__3A179ED3">
+        <Association Name="FK__PricesByD__mi_id__7C1A6C5A">
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
           <End Role="PricesByDealer" Type="Self.PricesByDealer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1183,7 +1241,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RulesByMo__rlm_f__0662F0A3">
+        <Association Name="FK__RulesByMo__rlm_f__7D0E9093">
           <End Role="FieldsToOperate" Type="Self.FieldsToOperate" Multiplicity="0..1" />
           <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1195,7 +1253,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RulesByMo__rlm_f__075714DC">
+        <Association Name="FK__RulesByMo__rlm_f__7E02B4CC">
           <End Role="FieldsToOperate" Type="Self.FieldsToOperate" Multiplicity="0..1" />
           <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1207,7 +1265,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RulesByMo__rlm_f__084B3915">
+        <Association Name="FK__RulesByMo__rlm_f__7EF6D905">
           <End Role="FieldsToOperate" Type="Self.FieldsToOperate" Multiplicity="0..1" />
           <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1219,19 +1277,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RulesByMo__rlm_o__093F5D4E">
-          <End Role="Operations" Type="Self.Operations" Multiplicity="0..1" />
-          <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Operations">
-              <PropertyRef Name="op_id" />
-            </Principal>
-            <Dependent Role="RulesByMovement">
-              <PropertyRef Name="rlm_op_1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RulesByMo__rlm_o__0A338187">
+        <Association Name="FK__RulesByMo__rlm_o__00DF2177">
           <End Role="Operations" Type="Self.Operations" Multiplicity="0..1" />
           <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1243,7 +1289,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RulesByMov__m_id__056ECC6A">
+        <Association Name="FK__RulesByMo__rlm_o__7FEAFD3E">
+          <End Role="Operations" Type="Self.Operations" Multiplicity="0..1" />
+          <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operations">
+              <PropertyRef Name="op_id" />
+            </Principal>
+            <Dependent Role="RulesByMovement">
+              <PropertyRef Name="rlm_op_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RulesByMov__m_id__01D345B0">
           <End Role="Movement" Type="Self.Movement" Multiplicity="0..1" />
           <End Role="RulesByMovement" Type="Self.RulesByMovement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1255,7 +1313,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TaxesByMa__mi_id__119F9925">
+        <Association Name="FK__TaxesByMa__mi_id__02C769E9">
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="1" />
           <End Role="TaxesByMaintenanceItem" Type="Self.TaxesByMaintenanceItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1267,7 +1325,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TaxesByMa__tax_i__10AB74EC">
+        <Association Name="FK__TaxesByMa__tax_i__03BB8E22">
           <End Role="Taxes" Type="Self.Taxes" Multiplicity="1" />
           <End Role="TaxesByMaintenanceItem" Type="Self.TaxesByMaintenanceItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1279,7 +1337,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__bra_i__69C6B1F5">
+        <Association Name="FK__transacti__bra_i__04AFB25B">
           <End Role="branch" Type="Self.branch" Multiplicity="0..1" />
           <End Role="transactionDetail" Type="Self.transactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1291,7 +1349,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__cntr___6BAEFA67">
+        <Association Name="FK__transacti__cntr___05A3D694">
           <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
           <End Role="transactionDetail" Type="Self.transactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1303,7 +1361,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__deal___67DE6983">
+        <Association Name="FK__transacti__deal___0697FACD">
           <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
           <End Role="transactionDetail" Type="Self.transactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1315,7 +1373,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__mi_id__6F7F8B4B">
+        <Association Name="FK__transacti__mi_id__0C50D423">
           <End Role="MaintenanceItem" Type="Self.MaintenanceItem" Multiplicity="0..1" />
           <End Role="transactionItems" Type="Self.transactionItems" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1327,7 +1385,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__mr_id__6ABAD62E">
+        <Association Name="FK__transacti__mr_id__078C1F06">
           <End Role="maintenanceRoutine" Type="Self.maintenanceRoutine" Multiplicity="0..1" />
           <End Role="transactionDetail" Type="Self.transactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1339,7 +1397,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__trx_i__65F62111">
+        <Association Name="FK__transacti__trx_i__0880433F">
           <End Role="transactions" Type="Self.transactions" Multiplicity="0..1" />
           <End Role="transactionDetail" Type="Self.transactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1351,7 +1409,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__trx_i__6E8B6712">
+        <Association Name="FK__transacti__trx_i__0D44F85C">
           <End Role="transactions" Type="Self.transactions" Multiplicity="0..1" />
           <End Role="transactionItems" Type="Self.transactionItems" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1363,7 +1421,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__trxst__6319B466">
+        <Association Name="FK__transacti__trxst__0E391C95">
           <End Role="transactionState" Type="Self.transactionState" Multiplicity="0..1" />
           <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1375,7 +1433,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__veh_i__66EA454A">
+        <Association Name="FK__transacti__veh_i__09746778">
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
           <End Role="transactionDetail" Type="Self.transactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1387,7 +1445,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transactio__m_id__6225902D">
+        <Association Name="FK__transactio__m_id__0F2D40CE">
           <End Role="Movement" Type="Self.Movement" Multiplicity="0..1" />
           <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1399,7 +1457,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__cpn_id__7ABC33CD">
+        <Association Name="FK__Users__cpn_id__11158940">
           <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1411,7 +1469,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Vehicle__cli_id__1332DBDC">
+        <Association Name="FK__Vehicle__cli_id__1209AD79">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1423,7 +1481,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Vehicle__vm_id__123EB7A3">
+        <Association Name="FK__Vehicle__vm_id__12FDD1B2">
           <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1435,7 +1493,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VehicleMo__cntr___214BF109">
+        <Association Name="FK__VehicleMo__cntr___16CE6296">
           <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
           <End Role="VehicleModelsByContract" Type="Self.VehicleModelsByContract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1447,7 +1505,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VehicleMo__vm_id__2057CCD0">
+        <Association Name="FK__VehicleMo__vm_id__17C286CF">
           <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="0..1" />
           <End Role="VehicleModelsByContract" Type="Self.VehicleModelsByContract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1459,7 +1517,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VehiclesB__cntr___251C81ED">
+        <Association Name="FK__VehiclesB__cntr___18B6AB08">
           <End Role="Contract" Type="Self.Contract" Multiplicity="0..1" />
           <End Role="VehiclesByContract" Type="Self.VehiclesByContract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1471,7 +1529,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VehiclesB__veh_i__24285DB4">
+        <Association Name="FK__VehiclesB__veh_i__19AACF41">
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
           <End Role="VehiclesByContract" Type="Self.VehiclesByContract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1747,6 +1805,7 @@
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContractState" EntityType="Self.ContractState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractualInformationByClient" EntityType="Self.ContractualInformationByClient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dealer" EntityType="Self.Dealer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DealerByDealerNerwork" EntityType="Self.DealerByDealerNerwork" Schema="dbo" store:Type="Tables" />
@@ -1775,8 +1834,8 @@
           <EntitySet Name="PresentationUnit" EntityType="Self.PresentationUnit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PricesByContract" EntityType="Self.PricesByContract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PricesByDealer" EntityType="Self.PricesByDealer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuotaType" EntityType="Self.QuotaType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RulesByMovement" EntityType="Self.RulesByMovement" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Taxes" EntityType="Self.Taxes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaxesByMaintenanceItem" EntityType="Self.TaxesByMaintenanceItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="transactionDetail" EntityType="Self.transactionDetail" Schema="dbo" store:Type="Tables" />
@@ -1792,275 +1851,287 @@
           <EntitySet Name="VehiclesByContract" EntityType="Self.VehiclesByContract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vehicleState" EntityType="Self.vehicleState" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__branch__cli_id__5CD6CB2B" Association="Self.FK__branch__cli_id__5CD6CB2B">
+          <AssociationSet Name="FK__branch__cli_id__4E53A1AA" Association="Self.FK__branch__cli_id__4E53A1AA">
             <End Role="Client" EntitySet="Client" />
             <End Role="branch" EntitySet="branch" />
           </AssociationSet>
-          <AssociationSet Name="FK__branch__cty_id__5DCAEF64" Association="Self.FK__branch__cty_id__5DCAEF64">
+          <AssociationSet Name="FK__branch__cty_id__4F47C5E3" Association="Self.FK__branch__cty_id__4F47C5E3">
             <End Role="Cities" EntitySet="Cities" />
             <End Role="branch" EntitySet="branch" />
           </AssociationSet>
-          <AssociationSet Name="FK__branch__deal_id__5EBF139D" Association="Self.FK__branch__deal_id__5EBF139D">
+          <AssociationSet Name="FK__branch__deal_id__503BEA1C" Association="Self.FK__branch__deal_id__503BEA1C">
             <End Role="Dealer" EntitySet="Dealer" />
             <End Role="branch" EntitySet="branch" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cities__dpt_id__3E52440B" Association="Self.FK__Cities__dpt_id__3E52440B">
+          <AssociationSet Name="FK__Cities__dpt_id__51300E55" Association="Self.FK__Cities__dpt_id__51300E55">
             <End Role="Departments" EntitySet="Departments" />
             <End Role="Cities" EntitySet="Cities" />
           </AssociationSet>
-          <AssociationSet Name="FK__Client__cty_id__4316F928" Association="Self.FK__Client__cty_id__4316F928">
+          <AssociationSet Name="FK__Client__cty_id__5224328E" Association="Self.FK__Client__cty_id__5224328E">
             <End Role="Cities" EntitySet="Cities" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contact__bra_id__6D0D32F4" Association="Self.FK__Contact__bra_id__6D0D32F4">
+          <AssociationSet Name="FK__Contact__bra_id__531856C7" Association="Self.FK__Contact__bra_id__531856C7">
             <End Role="branch" EntitySet="branch" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contact__cli_id__6FE99F9F" Association="Self.FK__Contact__cli_id__6FE99F9F">
+          <AssociationSet Name="FK__Contact__cli_id__540C7B00" Association="Self.FK__Contact__cli_id__540C7B00">
             <End Role="Client" EntitySet="Client" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contact__cty_id__6E01572D" Association="Self.FK__Contact__cty_id__6E01572D">
+          <AssociationSet Name="FK__Contact__cty_id__55009F39" Association="Self.FK__Contact__cty_id__55009F39">
             <End Role="Cities" EntitySet="Cities" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contact__deal_id__70DDC3D8" Association="Self.FK__Contact__deal_id__70DDC3D8">
+          <AssociationSet Name="FK__Contact__deal_id__55F4C372" Association="Self.FK__Contact__deal_id__55F4C372">
             <End Role="Dealer" EntitySet="Dealer" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contact__jtcl_id__6EF57B66" Association="Self.FK__Contact__jtcl_id__6EF57B66">
+          <AssociationSet Name="FK__Contact__jtcl_id__56E8E7AB" Association="Self.FK__Contact__jtcl_id__56E8E7AB">
             <End Role="JobTitlesClient" EntitySet="JobTitlesClient" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contract__cli_id__19AACF41" Association="Self.FK__Contract__cli_id__19AACF41">
+          <AssociationSet Name="FK__Contract__cli_id__57DD0BE4" Association="Self.FK__Contract__cli_id__57DD0BE4">
             <End Role="Client" EntitySet="Client" />
             <End Role="Contract" EntitySet="Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contract__cntrst__1B9317B3" Association="Self.FK__Contract__cntrst__1B9317B3">
+          <AssociationSet Name="FK__Contract__cntrst__58D1301D" Association="Self.FK__Contract__cntrst__58D1301D">
             <End Role="ContractState" EntitySet="ContractState" />
             <End Role="Contract" EntitySet="Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contract__deal_i__1A9EF37A" Association="Self.FK__Contract__deal_i__1A9EF37A">
+          <AssociationSet Name="FK__Contract__deal_i__59C55456" Association="Self.FK__Contract__deal_i__59C55456">
             <End Role="Dealer" EntitySet="Dealer" />
             <End Role="Contract" EntitySet="Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contract__dst_id__1C873BEC" Association="Self.FK__Contract__dst_id__1C873BEC">
+          <AssociationSet Name="FK__Contract__dst_id__5AB9788F" Association="Self.FK__Contract__dst_id__5AB9788F">
             <End Role="DiscountType" EntitySet="DiscountType" />
             <End Role="Contract" EntitySet="Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK__DealerByD__deal___4D94879B" Association="Self.FK__DealerByD__deal___4D94879B">
+          <AssociationSet Name="FK__Contractu__cli_i__5B78929E" Association="Self.FK__Contractu__cli_i__5B78929E">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contractu__qt_id__5C6CB6D7" Association="Self.FK__Contractu__qt_id__5C6CB6D7">
+            <End Role="QuotaType" EntitySet="QuotaType" />
+            <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contractu__usr_i__5D60DB10" Association="Self.FK__Contractu__usr_i__5D60DB10">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DealerByD__deal___5BAD9CC8" Association="Self.FK__DealerByD__deal___5BAD9CC8">
             <End Role="Dealer" EntitySet="Dealer" />
             <End Role="DealerByDealerNerwork" EntitySet="DealerByDealerNerwork" />
           </AssociationSet>
-          <AssociationSet Name="FK__DealerByD__dn_id__4CA06362" Association="Self.FK__DealerByD__dn_id__4CA06362">
+          <AssociationSet Name="FK__DealerByD__dn_id__5CA1C101" Association="Self.FK__DealerByD__dn_id__5CA1C101">
             <End Role="DealerNetwork" EntitySet="DealerNetwork" />
             <End Role="DealerByDealerNerwork" EntitySet="DealerByDealerNerwork" />
           </AssociationSet>
-          <AssociationSet Name="FK__Departmen__ctry___3A81B327" Association="Self.FK__Departmen__ctry___3A81B327">
+          <AssociationSet Name="FK__Departmen__ctry___5D95E53A" Association="Self.FK__Departmen__ctry___5D95E53A">
             <End Role="Countries" EntitySet="Countries" />
             <End Role="Departments" EntitySet="Departments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Financial__cli_i__7908F585" Association="Self.FK__Financial__cli_i__7908F585">
+          <AssociationSet Name="FK__Financial__cli_i__5E8A0973" Association="Self.FK__Financial__cli_i__5E8A0973">
             <End Role="Client" EntitySet="Client" />
             <End Role="FinancialInformationByClient" EntitySet="FinancialInformationByClient" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__act_i__61F08603" Association="Self.FK__GroupModu__act_i__61F08603">
+          <AssociationSet Name="FK__GroupModu__act_i__5F7E2DAC" Association="Self.FK__GroupModu__act_i__5F7E2DAC">
             <End Role="Actions" EntitySet="Actions" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__act_i__6B79F03D" Association="Self.FK__GroupModu__act_i__6B79F03D">
+          <AssociationSet Name="FK__GroupModu__act_i__607251E5" Association="Self.FK__GroupModu__act_i__607251E5">
             <End Role="Actions" EntitySet="Actions" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__act_i__6F4A8121" Association="Self.FK__GroupModu__act_i__6F4A8121">
+          <AssociationSet Name="FK__GroupModu__act_i__6166761E" Association="Self.FK__GroupModu__act_i__6166761E">
             <End Role="Actions" EntitySet="Actions" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__grp_i__62E4AA3C" Association="Self.FK__GroupModu__grp_i__62E4AA3C">
+          <AssociationSet Name="FK__GroupModu__grp_i__625A9A57" Association="Self.FK__GroupModu__grp_i__625A9A57">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__grp_i__6C6E1476" Association="Self.FK__GroupModu__grp_i__6C6E1476">
+          <AssociationSet Name="FK__GroupModu__grp_i__634EBE90" Association="Self.FK__GroupModu__grp_i__634EBE90">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__grp_i__703EA55A" Association="Self.FK__GroupModu__grp_i__703EA55A">
+          <AssociationSet Name="FK__GroupModu__grp_i__6442E2C9" Association="Self.FK__GroupModu__grp_i__6442E2C9">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__mdl_i__6D6238AF" Association="Self.FK__GroupModu__mdl_i__6D6238AF">
+          <AssociationSet Name="FK__GroupModu__mdl_i__65370702" Association="Self.FK__GroupModu__mdl_i__65370702">
             <End Role="Modules" EntitySet="Modules" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__GroupModu__mdl_i__7132C993" Association="Self.FK__GroupModu__mdl_i__7132C993">
+          <AssociationSet Name="FK__GroupModu__mdl_i__662B2B3B" Association="Self.FK__GroupModu__mdl_i__662B2B3B">
             <End Role="Modules" EntitySet="Modules" />
             <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__ItemsByRo__mi_id__09746778" Association="Self.FK__ItemsByRo__mi_id__09746778">
+          <AssociationSet Name="FK__ItemsByRo__mi_id__671F4F74" Association="Self.FK__ItemsByRo__mi_id__671F4F74">
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
             <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
           </AssociationSet>
-          <AssociationSet Name="FK__ItemsByRo__mi_id__0A688BB1" Association="Self.FK__ItemsByRo__mi_id__0A688BB1">
+          <AssociationSet Name="FK__ItemsByRo__mi_id__681373AD" Association="Self.FK__ItemsByRo__mi_id__681373AD">
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
             <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
           </AssociationSet>
-          <AssociationSet Name="FK__ItemsByRo__mr_id__0B5CAFEA" Association="Self.FK__ItemsByRo__mr_id__0B5CAFEA">
+          <AssociationSet Name="FK__ItemsByRo__mr_id__690797E6" Association="Self.FK__ItemsByRo__mr_id__690797E6">
             <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
             <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
           </AssociationSet>
-          <AssociationSet Name="FK__ItemsByRo__mr_id__0C50D423" Association="Self.FK__ItemsByRo__mr_id__0C50D423">
+          <AssociationSet Name="FK__ItemsByRo__mr_id__69FBBC1F" Association="Self.FK__ItemsByRo__mr_id__69FBBC1F">
             <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
             <End Role="ItemsByRoutines" EntitySet="ItemsByRoutines" />
           </AssociationSet>
-          <AssociationSet Name="FK__LOG_TRX__trx_id__220B0B18" Association="Self.FK__LOG_TRX__trx_id__220B0B18">
+          <AssociationSet Name="FK__LOG_TRX__trx_id__6BE40491" Association="Self.FK__LOG_TRX__trx_id__6BE40491">
             <End Role="transactions" EntitySet="transactions" />
             <End Role="LOG_TRX" EntitySet="LOG_TRX" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maintenan__mi_id__00DF2177" Association="Self.FK__Maintenan__mi_id__00DF2177">
-            <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
-            <End Role="MaintenanceItemsByVehicleTypes" EntitySet="MaintenanceItemsByVehicleTypes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Maintenan__mi_id__7B264821" Association="Self.FK__Maintenan__mi_id__7B264821">
+          <AssociationSet Name="FK__Maintenan__mi_id__70A8B9AE" Association="Self.FK__Maintenan__mi_id__70A8B9AE">
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
             <End Role="MaintenanceItemsByVehicleModels" EntitySet="MaintenanceItemsByVehicleModels" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maintenan__pu_id__45BE5BA9" Association="Self.FK__Maintenan__pu_id__45BE5BA9">
+          <AssociationSet Name="FK__Maintenan__mi_id__72910220" Association="Self.FK__Maintenan__mi_id__72910220">
+            <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+            <End Role="MaintenanceItemsByVehicleTypes" EntitySet="MaintenanceItemsByVehicleTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintenan__pu_id__6CD828CA" Association="Self.FK__Maintenan__pu_id__6CD828CA">
             <End Role="PresentationUnit" EntitySet="PresentationUnit" />
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maintenan__tmi_i__44CA3770" Association="Self.FK__Maintenan__tmi_i__44CA3770">
+          <AssociationSet Name="FK__Maintenan__tmi_i__6DCC4D03" Association="Self.FK__Maintenan__tmi_i__6DCC4D03">
             <End Role="TypeOfMaintenanceItem" EntitySet="TypeOfMaintenanceItem" />
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maintenan__vm_id__7C1A6C5A" Association="Self.FK__Maintenan__vm_id__7C1A6C5A">
+          <AssociationSet Name="FK__Maintenan__vm_id__719CDDE7" Association="Self.FK__Maintenan__vm_id__719CDDE7">
             <End Role="VehicleModel" EntitySet="VehicleModel" />
             <End Role="MaintenanceItemsByVehicleModels" EntitySet="MaintenanceItemsByVehicleModels" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maintenan__vt_id__01D345B0" Association="Self.FK__Maintenan__vt_id__01D345B0">
+          <AssociationSet Name="FK__Maintenan__vt_id__73852659" Association="Self.FK__Maintenan__vt_id__73852659">
             <End Role="VehicleType" EntitySet="VehicleType" />
             <End Role="MaintenanceItemsByVehicleTypes" EntitySet="MaintenanceItemsByVehicleTypes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Movement__m_dele__59904A2C" Association="Self.FK__Movement__m_dele__59904A2C">
+          <AssociationSet Name="FK__Movement__mtp_id__76619304" Association="Self.FK__Movement__mtp_id__76619304">
             <End Role="MovementType" EntitySet="MovementType" />
             <End Role="Movement" EntitySet="Movement" />
           </AssociationSet>
-          <AssociationSet Name="FK__observati__trx_i__74444068" Association="Self.FK__observati__trx_i__74444068">
+          <AssociationSet Name="FK__observati__trx_i__7755B73D" Association="Self.FK__observati__trx_i__7755B73D">
             <End Role="transactions" EntitySet="transactions" />
             <End Role="observationsByTransaction" EntitySet="observationsByTransaction" />
           </AssociationSet>
-          <AssociationSet Name="FK__PricesByC__mi_id__3FD07829" Association="Self.FK__PricesByC__mi_id__3FD07829">
-            <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
-            <End Role="PricesByContract" EntitySet="PricesByContract" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PricesByC__pbc_d__3EDC53F0" Association="Self.FK__PricesByC__pbc_d__3EDC53F0">
+          <AssociationSet Name="FK__PricesByC__cntr___7A3223E8" Association="Self.FK__PricesByC__cntr___7A3223E8">
             <End Role="Contract" EntitySet="Contract" />
             <End Role="PricesByContract" EntitySet="PricesByContract" />
           </AssociationSet>
-          <AssociationSet Name="FK__PricesByD__deal___3B0BC30C" Association="Self.FK__PricesByD__deal___3B0BC30C">
+          <AssociationSet Name="FK__PricesByC__mi_id__793DFFAF" Association="Self.FK__PricesByC__mi_id__793DFFAF">
+            <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
+            <End Role="PricesByContract" EntitySet="PricesByContract" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PricesByD__deal___7B264821" Association="Self.FK__PricesByD__deal___7B264821">
             <End Role="Dealer" EntitySet="Dealer" />
             <End Role="PricesByDealer" EntitySet="PricesByDealer" />
           </AssociationSet>
-          <AssociationSet Name="FK__PricesByD__mi_id__3A179ED3" Association="Self.FK__PricesByD__mi_id__3A179ED3">
+          <AssociationSet Name="FK__PricesByD__mi_id__7C1A6C5A" Association="Self.FK__PricesByD__mi_id__7C1A6C5A">
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
             <End Role="PricesByDealer" EntitySet="PricesByDealer" />
           </AssociationSet>
-          <AssociationSet Name="FK__RulesByMo__rlm_f__0662F0A3" Association="Self.FK__RulesByMo__rlm_f__0662F0A3">
+          <AssociationSet Name="FK__RulesByMo__rlm_f__7D0E9093" Association="Self.FK__RulesByMo__rlm_f__7D0E9093">
             <End Role="FieldsToOperate" EntitySet="FieldsToOperate" />
             <End Role="RulesByMovement" EntitySet="RulesByMovement" />
           </AssociationSet>
-          <AssociationSet Name="FK__RulesByMo__rlm_f__075714DC" Association="Self.FK__RulesByMo__rlm_f__075714DC">
+          <AssociationSet Name="FK__RulesByMo__rlm_f__7E02B4CC" Association="Self.FK__RulesByMo__rlm_f__7E02B4CC">
             <End Role="FieldsToOperate" EntitySet="FieldsToOperate" />
             <End Role="RulesByMovement" EntitySet="RulesByMovement" />
           </AssociationSet>
-          <AssociationSet Name="FK__RulesByMo__rlm_f__084B3915" Association="Self.FK__RulesByMo__rlm_f__084B3915">
+          <AssociationSet Name="FK__RulesByMo__rlm_f__7EF6D905" Association="Self.FK__RulesByMo__rlm_f__7EF6D905">
             <End Role="FieldsToOperate" EntitySet="FieldsToOperate" />
             <End Role="RulesByMovement" EntitySet="RulesByMovement" />
           </AssociationSet>
-          <AssociationSet Name="FK__RulesByMo__rlm_o__093F5D4E" Association="Self.FK__RulesByMo__rlm_o__093F5D4E">
+          <AssociationSet Name="FK__RulesByMo__rlm_o__00DF2177" Association="Self.FK__RulesByMo__rlm_o__00DF2177">
             <End Role="Operations" EntitySet="Operations" />
             <End Role="RulesByMovement" EntitySet="RulesByMovement" />
           </AssociationSet>
-          <AssociationSet Name="FK__RulesByMo__rlm_o__0A338187" Association="Self.FK__RulesByMo__rlm_o__0A338187">
+          <AssociationSet Name="FK__RulesByMo__rlm_o__7FEAFD3E" Association="Self.FK__RulesByMo__rlm_o__7FEAFD3E">
             <End Role="Operations" EntitySet="Operations" />
             <End Role="RulesByMovement" EntitySet="RulesByMovement" />
           </AssociationSet>
-          <AssociationSet Name="FK__RulesByMov__m_id__056ECC6A" Association="Self.FK__RulesByMov__m_id__056ECC6A">
+          <AssociationSet Name="FK__RulesByMov__m_id__01D345B0" Association="Self.FK__RulesByMov__m_id__01D345B0">
             <End Role="Movement" EntitySet="Movement" />
             <End Role="RulesByMovement" EntitySet="RulesByMovement" />
           </AssociationSet>
-          <AssociationSet Name="FK__TaxesByMa__mi_id__119F9925" Association="Self.FK__TaxesByMa__mi_id__119F9925">
+          <AssociationSet Name="FK__TaxesByMa__mi_id__02C769E9" Association="Self.FK__TaxesByMa__mi_id__02C769E9">
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
             <End Role="TaxesByMaintenanceItem" EntitySet="TaxesByMaintenanceItem" />
           </AssociationSet>
-          <AssociationSet Name="FK__TaxesByMa__tax_i__10AB74EC" Association="Self.FK__TaxesByMa__tax_i__10AB74EC">
+          <AssociationSet Name="FK__TaxesByMa__tax_i__03BB8E22" Association="Self.FK__TaxesByMa__tax_i__03BB8E22">
             <End Role="Taxes" EntitySet="Taxes" />
             <End Role="TaxesByMaintenanceItem" EntitySet="TaxesByMaintenanceItem" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__bra_i__69C6B1F5" Association="Self.FK__transacti__bra_i__69C6B1F5">
+          <AssociationSet Name="FK__transacti__bra_i__04AFB25B" Association="Self.FK__transacti__bra_i__04AFB25B">
             <End Role="branch" EntitySet="branch" />
             <End Role="transactionDetail" EntitySet="transactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__cntr___6BAEFA67" Association="Self.FK__transacti__cntr___6BAEFA67">
+          <AssociationSet Name="FK__transacti__cntr___05A3D694" Association="Self.FK__transacti__cntr___05A3D694">
             <End Role="Contract" EntitySet="Contract" />
             <End Role="transactionDetail" EntitySet="transactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__deal___67DE6983" Association="Self.FK__transacti__deal___67DE6983">
+          <AssociationSet Name="FK__transacti__deal___0697FACD" Association="Self.FK__transacti__deal___0697FACD">
             <End Role="Dealer" EntitySet="Dealer" />
             <End Role="transactionDetail" EntitySet="transactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__mi_id__6F7F8B4B" Association="Self.FK__transacti__mi_id__6F7F8B4B">
+          <AssociationSet Name="FK__transacti__mi_id__0C50D423" Association="Self.FK__transacti__mi_id__0C50D423">
             <End Role="MaintenanceItem" EntitySet="MaintenanceItem" />
             <End Role="transactionItems" EntitySet="transactionItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__mr_id__6ABAD62E" Association="Self.FK__transacti__mr_id__6ABAD62E">
+          <AssociationSet Name="FK__transacti__mr_id__078C1F06" Association="Self.FK__transacti__mr_id__078C1F06">
             <End Role="maintenanceRoutine" EntitySet="maintenanceRoutine" />
             <End Role="transactionDetail" EntitySet="transactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__trx_i__65F62111" Association="Self.FK__transacti__trx_i__65F62111">
+          <AssociationSet Name="FK__transacti__trx_i__0880433F" Association="Self.FK__transacti__trx_i__0880433F">
             <End Role="transactions" EntitySet="transactions" />
             <End Role="transactionDetail" EntitySet="transactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__trx_i__6E8B6712" Association="Self.FK__transacti__trx_i__6E8B6712">
+          <AssociationSet Name="FK__transacti__trx_i__0D44F85C" Association="Self.FK__transacti__trx_i__0D44F85C">
             <End Role="transactions" EntitySet="transactions" />
             <End Role="transactionItems" EntitySet="transactionItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__trxst__6319B466" Association="Self.FK__transacti__trxst__6319B466">
+          <AssociationSet Name="FK__transacti__trxst__0E391C95" Association="Self.FK__transacti__trxst__0E391C95">
             <End Role="transactionState" EntitySet="transactionState" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__veh_i__66EA454A" Association="Self.FK__transacti__veh_i__66EA454A">
+          <AssociationSet Name="FK__transacti__veh_i__09746778" Association="Self.FK__transacti__veh_i__09746778">
             <End Role="Vehicle" EntitySet="Vehicle" />
             <End Role="transactionDetail" EntitySet="transactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__transactio__m_id__6225902D" Association="Self.FK__transactio__m_id__6225902D">
+          <AssociationSet Name="FK__transactio__m_id__0F2D40CE" Association="Self.FK__transactio__m_id__0F2D40CE">
             <End Role="Movement" EntitySet="Movement" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__cpn_id__7ABC33CD" Association="Self.FK__Users__cpn_id__7ABC33CD">
+          <AssociationSet Name="FK__Users__cpn_id__11158940" Association="Self.FK__Users__cpn_id__11158940">
             <End Role="Company" EntitySet="Company" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Vehicle__cli_id__1332DBDC" Association="Self.FK__Vehicle__cli_id__1332DBDC">
+          <AssociationSet Name="FK__Vehicle__cli_id__1209AD79" Association="Self.FK__Vehicle__cli_id__1209AD79">
             <End Role="Client" EntitySet="Client" />
             <End Role="Vehicle" EntitySet="Vehicle" />
           </AssociationSet>
-          <AssociationSet Name="FK__Vehicle__vm_id__123EB7A3" Association="Self.FK__Vehicle__vm_id__123EB7A3">
+          <AssociationSet Name="FK__Vehicle__vm_id__12FDD1B2" Association="Self.FK__Vehicle__vm_id__12FDD1B2">
             <End Role="VehicleModel" EntitySet="VehicleModel" />
             <End Role="Vehicle" EntitySet="Vehicle" />
           </AssociationSet>
-          <AssociationSet Name="FK__VehicleMo__cntr___214BF109" Association="Self.FK__VehicleMo__cntr___214BF109">
+          <AssociationSet Name="FK__VehicleMo__cntr___16CE6296" Association="Self.FK__VehicleMo__cntr___16CE6296">
             <End Role="Contract" EntitySet="Contract" />
             <End Role="VehicleModelsByContract" EntitySet="VehicleModelsByContract" />
           </AssociationSet>
-          <AssociationSet Name="FK__VehicleMo__vm_id__2057CCD0" Association="Self.FK__VehicleMo__vm_id__2057CCD0">
+          <AssociationSet Name="FK__VehicleMo__vm_id__17C286CF" Association="Self.FK__VehicleMo__vm_id__17C286CF">
             <End Role="VehicleModel" EntitySet="VehicleModel" />
             <End Role="VehicleModelsByContract" EntitySet="VehicleModelsByContract" />
           </AssociationSet>
-          <AssociationSet Name="FK__VehiclesB__cntr___251C81ED" Association="Self.FK__VehiclesB__cntr___251C81ED">
+          <AssociationSet Name="FK__VehiclesB__cntr___18B6AB08" Association="Self.FK__VehiclesB__cntr___18B6AB08">
             <End Role="Contract" EntitySet="Contract" />
             <End Role="VehiclesByContract" EntitySet="VehiclesByContract" />
           </AssociationSet>
-          <AssociationSet Name="FK__VehiclesB__veh_i__24285DB4" Association="Self.FK__VehiclesB__veh_i__24285DB4">
+          <AssociationSet Name="FK__VehiclesB__veh_i__19AACF41" Association="Self.FK__VehiclesB__veh_i__19AACF41">
             <End Role="Vehicle" EntitySet="Vehicle" />
             <End Role="VehiclesByContract" EntitySet="VehiclesByContract" />
           </AssociationSet>
@@ -2183,6 +2254,7 @@
           <NavigationProperty Name="Contract" Relationship="DB_FleetServiceModel.FK__Contract__cli_id__19AACF41" FromRole="Client" ToRole="Contract" />
           <NavigationProperty Name="FinancialInformationByClient" Relationship="DB_FleetServiceModel.FK__Financial__cli_i__7908F585" FromRole="Client" ToRole="FinancialInformationByClient" />
           <NavigationProperty Name="transactions" Relationship="DB_FleetServiceModel.fk_transactions_client" FromRole="Client" ToRole="transactions" />
+          <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E" FromRole="Client" ToRole="ContractualInformationByClient" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -2972,6 +3044,20 @@
             <Parameter Name="INI_DATE" Mode="In" Type="DateTime" />
             <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="ContractualInformationByClient" EntityType="DB_FleetServiceModel.ContractualInformationByClient" />
+          <EntitySet Name="QuotaType" EntityType="DB_FleetServiceModel.QuotaType" />
+          <AssociationSet Name="FK__Contractu__cli_i__5B78929E" Association="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contractu__qt_id__5C6CB6D7" Association="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7">
+            <End Role="QuotaType" EntitySet="QuotaType" />
+            <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contractu__usr_i__5D60DB10" Association="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+          </AssociationSet>
          
         </EntityContainer>
         <EntityType Name="Vehicle">
@@ -3910,6 +3996,7 @@
           <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__7ABC33CD" FromRole="Users" ToRole="Company" />
           <NavigationProperty Name="observationsByTransaction" Relationship="DB_FleetServiceModel.FK_observations_users" FromRole="Users" ToRole="observationsByTransaction" />
           <NavigationProperty Name="transactionDetail" Relationship="DB_FleetServiceModel.FK_USU_ENDDING" FromRole="Users" ToRole="transactionDetail" />
+          <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" FromRole="Users" ToRole="ContractualInformationByClient" />
         </EntityType>
         <Association Name="FK__GroupModu__act_i__61F08603">
           <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />
@@ -4761,6 +4848,78 @@
           <Property Type="String" Name="Placa" Nullable="true" MaxLength="10" />
           <Property Type="Int32" Name="Cantidad" Nullable="true" />
         </ComplexType>
+        <EntityType Name="ContractualInformationByClient">
+          <Key>
+            <PropertyRef Name="cntInf_id" />
+          </Key>
+          <Property Name="cntInf_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cli_id" Type="Int32" Nullable="false" />
+          <Property Name="cntInf_contractCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cntInf_serviceInitDate" Type="DateTime" Precision="3" />
+          <Property Name="cntInf_serviceEndDate" Type="DateTime" Precision="3" />
+          <Property Name="cntInf_quotaApprovalDate" Type="DateTime" Precision="3" />
+          <Property Name="cntInf_quotaEndingDate" Type="DateTime" Precision="3" />
+          <Property Name="qt_id" Type="Int32" />
+          <Property Name="cntInf_paymentAgreement" Type="Int16" />
+          <Property Name="cntInf_adminPercentage" Type="Byte" />
+          <Property Name="usr_id" Type="Int32" Nullable="false" />
+          <Property Name="cntInf_state" Type="Boolean" />
+          <Property Name="cntInf_registrationDate" Type="DateTime" Precision="3" />
+          <Property Name="cntInf_updateDate" Type="DateTime" Precision="3" />
+          <Property Name="cntInf_deleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E" FromRole="ContractualInformationByClient" ToRole="Client" />
+          <NavigationProperty Name="QuotaType" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="ContractualInformationByClient" ToRole="QuotaType" />
+          <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" FromRole="ContractualInformationByClient" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="QuotaType">
+          <Key>
+            <PropertyRef Name="qt_id" />
+          </Key>
+          <Property Name="qt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qt_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qt_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="qt_state" Type="Boolean" />
+          <Property Name="qt_registrationDate" Type="DateTime" Precision="3" />
+          <Property Name="qt_updateDate" Type="DateTime" Precision="3" />
+          <Property Name="qt_deleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="QuotaType" ToRole="ContractualInformationByClient" />
+        </EntityType>
+        <Association Name="FK__Contractu__cli_i__5B78929E">
+          <End Type="DB_FleetServiceModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="cli_id" />
+            </Principal>
+            <Dependent Role="ContractualInformationByClient">
+              <PropertyRef Name="cli_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contractu__qt_id__5C6CB6D7">
+          <End Type="DB_FleetServiceModel.QuotaType" Role="QuotaType" Multiplicity="0..1" />
+          <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuotaType">
+              <PropertyRef Name="qt_id" />
+            </Principal>
+            <Dependent Role="ContractualInformationByClient">
+              <PropertyRef Name="qt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contractu__usr_i__5D60DB10">
+          <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="usr_id" />
+            </Principal>
+            <Dependent Role="ContractualInformationByClient">
+              <PropertyRef Name="usr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5350,17 +5509,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DB_FleetServiceModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="transactionDetail">
             <EntityTypeMapping TypeName="DB_FleetServiceModel.transactionDetail">
               <MappingFragment StoreEntitySet="transactionDetail">
@@ -5741,6 +5889,40 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ContractualInformationByClient">
+            <EntityTypeMapping TypeName="DB_FleetServiceModel.ContractualInformationByClient">
+              <MappingFragment StoreEntitySet="ContractualInformationByClient">
+                <ScalarProperty Name="cntInf_deleteDate" ColumnName="cntInf_deleteDate" />
+                <ScalarProperty Name="cntInf_updateDate" ColumnName="cntInf_updateDate" />
+                <ScalarProperty Name="cntInf_registrationDate" ColumnName="cntInf_registrationDate" />
+                <ScalarProperty Name="cntInf_state" ColumnName="cntInf_state" />
+                <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+                <ScalarProperty Name="cntInf_adminPercentage" ColumnName="cntInf_adminPercentage" />
+                <ScalarProperty Name="cntInf_paymentAgreement" ColumnName="cntInf_paymentAgreement" />
+                <ScalarProperty Name="qt_id" ColumnName="qt_id" />
+                <ScalarProperty Name="cntInf_quotaEndingDate" ColumnName="cntInf_quotaEndingDate" />
+                <ScalarProperty Name="cntInf_quotaApprovalDate" ColumnName="cntInf_quotaApprovalDate" />
+                <ScalarProperty Name="cntInf_serviceEndDate" ColumnName="cntInf_serviceEndDate" />
+                <ScalarProperty Name="cntInf_serviceInitDate" ColumnName="cntInf_serviceInitDate" />
+                <ScalarProperty Name="cntInf_contractCode" ColumnName="cntInf_contractCode" />
+                <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+                <ScalarProperty Name="cntInf_id" ColumnName="cntInf_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuotaType">
+            <EntityTypeMapping TypeName="DB_FleetServiceModel.QuotaType">
+              <MappingFragment StoreEntitySet="QuotaType">
+                <ScalarProperty Name="qt_deleteDate" ColumnName="qt_deleteDate" />
+                <ScalarProperty Name="qt_updateDate" ColumnName="qt_updateDate" />
+                <ScalarProperty Name="qt_registrationDate" ColumnName="qt_registrationDate" />
+                <ScalarProperty Name="qt_state" ColumnName="qt_state" />
+                <ScalarProperty Name="qt_description" ColumnName="qt_description" />
+                <ScalarProperty Name="qt_name" ColumnName="qt_name" />
+                <ScalarProperty Name="qt_id" ColumnName="qt_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

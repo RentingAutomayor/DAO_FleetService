@@ -543,12 +543,10 @@
     <EntitySet Name="PricesByContract" EntityType="DB_FleetServiceModel.PricesByContract" />
     <EntitySet Name="PricesByDealer" EntityType="DB_FleetServiceModel.PricesByDealer" />
     <EntitySet Name="RulesByMovement" EntityType="DB_FleetServiceModel.RulesByMovement" />
-    <EntitySet Name="sysdiagrams" EntityType="DB_FleetServiceModel.sysdiagrams" />
     <EntitySet Name="transactionDetail" EntityType="DB_FleetServiceModel.transactionDetail" />
     <EntitySet Name="transactionItems" EntityType="DB_FleetServiceModel.transactionItems" />
     <EntitySet Name="transactions" EntityType="DB_FleetServiceModel.transactions" />
     <EntitySet Name="transactionState" EntityType="DB_FleetServiceModel.transactionState" />
-    <EntitySet Name="Users" EntityType="DB_FleetServiceModel.Users" />
     <AssociationSet Name="FK__GroupModu__act_i__61F08603" Association="DB_FleetServiceModel.FK__GroupModu__act_i__61F08603">
       <End Role="Actions" EntitySet="Actions" />
       <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
@@ -620,18 +618,6 @@
     <AssociationSet Name="FK__GroupModu__mdl_i__7132C993" Association="DB_FleetServiceModel.FK__GroupModu__mdl_i__7132C993">
       <End Role="Modules" EntitySet="Modules" />
       <End Role="GroupModuleAction" EntitySet="GroupModuleAction" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Users__grp_id__64CCF2AE" Association="DB_FleetServiceModel.FK__Users__grp_id__64CCF2AE">
-      <End Role="Groups" EntitySet="Groups" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Users__grp_id__6E565CE8" Association="DB_FleetServiceModel.FK__Users__grp_id__6E565CE8">
-      <End Role="Groups" EntitySet="Groups" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Users__grp_id__7226EDCC" Association="DB_FleetServiceModel.FK__Users__grp_id__7226EDCC">
-      <End Role="Groups" EntitySet="Groups" />
-      <End Role="Users" EntitySet="Users" />
     </AssociationSet>
     <AssociationSet Name="FK__LOG_TRX__trx_id__220B0B18" Association="DB_FleetServiceModel.FK__LOG_TRX__trx_id__220B0B18">
       <End Role="transactions" EntitySet="transactions" />
@@ -734,10 +720,6 @@
       <Parameter Name="DEALER_ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="Company" EntityType="DB_FleetServiceModel.Company" />
-    <AssociationSet Name="FK__Users__cpn_id__7ABC33CD" Association="DB_FleetServiceModel.FK__Users__cpn_id__7ABC33CD">
-      <End Role="Company" EntitySet="Company" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
     <FunctionImport Name="STRPRC_GET_TRANSACTIONS_BY_CLIENT" ReturnType="Collection(DB_FleetServiceModel.STRPRC_GET_TRANSACTIONS_BY_CLIENT_Result1)">
       <Parameter Name="CLIENT_ID" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -768,10 +750,6 @@
     <FunctionImport Name="STRPRC_GET_WORKORDERS_TO_APPROVE_BY_CLIENT1" ReturnType="Collection(DB_FleetServiceModel.STRPRC_GET_WORKORDERS_TO_APPROVE_BY_CLIENT1_Result)">
       <Parameter Name="CLIENT_ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <AssociationSet Name="FK_observations_users" Association="DB_FleetServiceModel.FK_observations_users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="observationsByTransaction" EntitySet="observationsByTransaction" />
-    </AssociationSet>
     <FunctionImport Name="STRPRC_GET_TRANSACTIONS_TODAY1" ReturnType="Collection(DB_FleetServiceModel.STRPRC_GET_TRANSACTIONS_TODAY1_Result)" />
     <FunctionImport Name="STRPRC_PROCESS_TRANSACTION_V2">
       <Parameter Name="CLIENT_ID" Mode="In" Type="Int32" />
@@ -838,10 +816,6 @@
       <Parameter Name="LICENSE_PLATE" Mode="In" Type="String" />
       <Parameter Name="STATE_WORK_ORDER" Mode="In" Type="Int32" />
     </FunctionImport>
-    <AssociationSet Name="FK_USU_ENDDING" Association="DB_FleetServiceModel.FK_USU_ENDDING">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="transactionDetail" EntitySet="transactionDetail" />
-    </AssociationSet>
     <FunctionImport Name="STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE" ReturnType="Collection(DB_FleetServiceModel.STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE_Result)">
       <Parameter Name="CLIENT_ID" Mode="In" Type="Int32" />
       <Parameter Name="DEALER_ID" Mode="In" Type="Int32" />
@@ -856,8 +830,8 @@
       <Parameter Name="INI_DATE" Mode="In" Type="DateTime" />
       <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <EntitySet Name="ContractualInformationByClient" EntityType="DB_FleetServiceModel.ContractualInformationByClient" />
     <EntitySet Name="QuotaType" EntityType="DB_FleetServiceModel.QuotaType" />
+    <EntitySet Name="ContractualInformationByClient" EntityType="DB_FleetServiceModel.ContractualInformationByClient" />
     <AssociationSet Name="FK__Contractu__cli_i__5B78929E" Association="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E">
       <End Role="Client" EntitySet="Client" />
       <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
@@ -866,9 +840,18 @@
       <End Role="QuotaType" EntitySet="QuotaType" />
       <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
     </AssociationSet>
-    <AssociationSet Name="FK__Contractu__usr_i__5D60DB10" Association="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10">
+    <EntitySet Name="Users" EntityType="DB_FleetServiceModel.Users" />
+    <AssociationSet Name="FK__Users__cpn_id__11158940" Association="DB_FleetServiceModel.FK__Users__cpn_id__11158940">
+      <End Role="Company" EntitySet="Company" />
       <End Role="Users" EntitySet="Users" />
-      <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_observations_users" Association="DB_FleetServiceModel.FK_observations_users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="observationsByTransaction" EntitySet="observationsByTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USU_ENDDING" Association="DB_FleetServiceModel.FK_USU_ENDDING">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="transactionDetail" EntitySet="transactionDetail" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Vehicle">
@@ -1549,9 +1532,6 @@
     <NavigationProperty Name="GroupModuleAction" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__62E4AA3C" FromRole="Groups" ToRole="GroupModuleAction" />
     <NavigationProperty Name="GroupModuleAction1" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__6C6E1476" FromRole="Groups" ToRole="GroupModuleAction" />
     <NavigationProperty Name="GroupModuleAction2" Relationship="DB_FleetServiceModel.FK__GroupModu__grp_i__703EA55A" FromRole="Groups" ToRole="GroupModuleAction" />
-    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__grp_id__64CCF2AE" FromRole="Groups" ToRole="Users" />
-    <NavigationProperty Name="Users1" Relationship="DB_FleetServiceModel.FK__Users__grp_id__6E565CE8" FromRole="Groups" ToRole="Users" />
-    <NavigationProperty Name="Users2" Relationship="DB_FleetServiceModel.FK__Users__grp_id__7226EDCC" FromRole="Groups" ToRole="Users" />
   </EntityType>
   <EntityType Name="LOG_TRX">
     <Key>
@@ -1690,16 +1670,6 @@
     <NavigationProperty Name="Operations" Relationship="DB_FleetServiceModel.FK__RulesByMo__rlm_o__093F5D4E" FromRole="RulesByMovement" ToRole="Operations" />
     <NavigationProperty Name="Operations1" Relationship="DB_FleetServiceModel.FK__RulesByMo__rlm_o__0A338187" FromRole="RulesByMovement" ToRole="Operations" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="transactionDetail">
     <Key>
       <PropertyRef Name="trxdt_id" />
@@ -1787,27 +1757,6 @@
     <Property Name="trxst_updateDate" Type="DateTime" Precision="3" />
     <Property Name="trxst_deleteDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="transactions" Relationship="DB_FleetServiceModel.FK__transacti__trxst__6319B466" FromRole="transactionState" ToRole="transactions" />
-  </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="usr_id" />
-    </Key>
-    <Property Name="usr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="usr_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="usr_password" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="grp_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Groups" Relationship="DB_FleetServiceModel.FK__Users__grp_id__64CCF2AE" FromRole="Users" ToRole="Groups" />
-    <NavigationProperty Name="Groups1" Relationship="DB_FleetServiceModel.FK__Users__grp_id__6E565CE8" FromRole="Users" ToRole="Groups" />
-    <NavigationProperty Name="Groups2" Relationship="DB_FleetServiceModel.FK__Users__grp_id__7226EDCC" FromRole="Users" ToRole="Groups" />
-    <Property Name="usr_firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="usr_lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="cli_id" Type="Int32" />
-    <Property Name="deal_id" Type="Int32" />
-    <Property Name="cpn_id" Type="Int32" />
-    <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__7ABC33CD" FromRole="Users" ToRole="Company" />
-    <NavigationProperty Name="observationsByTransaction" Relationship="DB_FleetServiceModel.FK_observations_users" FromRole="Users" ToRole="observationsByTransaction" />
-    <NavigationProperty Name="transactionDetail" Relationship="DB_FleetServiceModel.FK_USU_ENDDING" FromRole="Users" ToRole="transactionDetail" />
-    <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" FromRole="Users" ToRole="ContractualInformationByClient" />
   </EntityType>
   <Association Name="FK__GroupModu__act_i__61F08603">
     <End Type="DB_FleetServiceModel.Actions" Role="Actions" Multiplicity="1" />
@@ -2022,42 +1971,6 @@
       </Principal>
       <Dependent Role="GroupModuleAction">
         <PropertyRef Name="mdl_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Users__grp_id__64CCF2AE">
-    <End Type="DB_FleetServiceModel.Groups" Role="Groups" Multiplicity="1" />
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Groups">
-        <PropertyRef Name="grp_id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="grp_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Users__grp_id__6E565CE8">
-    <End Type="DB_FleetServiceModel.Groups" Role="Groups" Multiplicity="1" />
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Groups">
-        <PropertyRef Name="grp_id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="grp_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Users__grp_id__7226EDCC">
-    <End Type="DB_FleetServiceModel.Groups" Role="Groups" Multiplicity="1" />
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Groups">
-        <PropertyRef Name="grp_id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="grp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2362,20 +2275,8 @@
     <Property Name="cpn_razonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="cpn_nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="cpn_state" Type="Boolean" />
-    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__7ABC33CD" FromRole="Company" ToRole="Users" />
+    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__11158940" FromRole="Company" ToRole="Users" />
   </EntityType>
-  <Association Name="FK__Users__cpn_id__7ABC33CD">
-    <End Type="DB_FleetServiceModel.Company" Role="Company" Multiplicity="0..1" />
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Company">
-        <PropertyRef Name="cpn_id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="cpn_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <ComplexType Name="STRPRC_GET_TRANSACTIONS_BY_CLIENT_Result">
     <Property Type="Int32" Name="trx_id" Nullable="false" />
     <Property Type="Int32" Name="m_id" Nullable="true" />
@@ -2553,18 +2454,6 @@
     <Property Type="Int32" Name="usu_id" Nullable="true" />
     <Property Type="String" Name="trx_code" Nullable="true" MaxLength="30" />
   </ComplexType>
-  <Association Name="FK_observations_users">
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="0..1" />
-    <End Type="DB_FleetServiceModel.observationsByTransaction" Role="observationsByTransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="usr_id" />
-      </Principal>
-      <Dependent Role="observationsByTransaction">
-        <PropertyRef Name="usr_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <ComplexType Name="STRPRC_GET_TRANSACTIONS_TODAY1_Result">
     <Property Type="Int32" Name="cli_id" Nullable="false" />
     <Property Type="String" Name="cli_document" Nullable="false" MaxLength="10" />
@@ -2638,18 +2527,6 @@
     <Property Type="Double" Name="trx_value" Nullable="true" />
     <Property Type="String" Name="trx_code" Nullable="true" MaxLength="30" />
   </ComplexType>
-  <Association Name="FK_USU_ENDDING">
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="0..1" />
-    <End Type="DB_FleetServiceModel.transactionDetail" Role="transactionDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="usr_id" />
-      </Principal>
-      <Dependent Role="transactionDetail">
-        <PropertyRef Name="usu_ending" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <ComplexType Name="STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE_Result">
     <Property Type="String" Name="Placa" Nullable="true" MaxLength="10" />
     <Property Type="Int32" Name="Cantidad" Nullable="true" />
@@ -2658,6 +2535,19 @@
     <Property Type="String" Name="Placa" Nullable="true" MaxLength="10" />
     <Property Type="Int32" Name="Cantidad" Nullable="true" />
   </ComplexType>
+  <EntityType Name="QuotaType">
+    <Key>
+      <PropertyRef Name="qt_id" />
+    </Key>
+    <Property Name="qt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="qt_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="qt_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="qt_state" Type="Boolean" />
+    <Property Name="qt_registrationDate" Type="DateTime" Precision="3" />
+    <Property Name="qt_updateDate" Type="DateTime" Precision="3" />
+    <Property Name="qt_deleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="QuotaType" ToRole="ContractualInformationByClient" />
+  </EntityType>
   <EntityType Name="ContractualInformationByClient">
     <Key>
       <PropertyRef Name="cntInf_id" />
@@ -2672,27 +2562,12 @@
     <Property Name="qt_id" Type="Int32" />
     <Property Name="cntInf_paymentAgreement" Type="Int16" />
     <Property Name="cntInf_adminPercentage" Type="Byte" />
-    <Property Name="usr_id" Type="Int32" Nullable="false" />
     <Property Name="cntInf_state" Type="Boolean" />
     <Property Name="cntInf_registrationDate" Type="DateTime" Precision="3" />
     <Property Name="cntInf_updateDate" Type="DateTime" Precision="3" />
     <Property Name="cntInf_deleteDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Client" Relationship="DB_FleetServiceModel.FK__Contractu__cli_i__5B78929E" FromRole="ContractualInformationByClient" ToRole="Client" />
     <NavigationProperty Name="QuotaType" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="ContractualInformationByClient" ToRole="QuotaType" />
-    <NavigationProperty Name="Users" Relationship="DB_FleetServiceModel.FK__Contractu__usr_i__5D60DB10" FromRole="ContractualInformationByClient" ToRole="Users" />
-  </EntityType>
-  <EntityType Name="QuotaType">
-    <Key>
-      <PropertyRef Name="qt_id" />
-    </Key>
-    <Property Name="qt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="qt_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="qt_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="qt_state" Type="Boolean" />
-    <Property Name="qt_registrationDate" Type="DateTime" Precision="3" />
-    <Property Name="qt_updateDate" Type="DateTime" Precision="3" />
-    <Property Name="qt_deleteDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ContractualInformationByClient" Relationship="DB_FleetServiceModel.FK__Contractu__qt_id__5C6CB6D7" FromRole="QuotaType" ToRole="ContractualInformationByClient" />
   </EntityType>
   <Association Name="FK__Contractu__cli_i__5B78929E">
     <End Type="DB_FleetServiceModel.Client" Role="Client" Multiplicity="1" />
@@ -2718,15 +2593,56 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Contractu__usr_i__5D60DB10">
-    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="1" />
-    <End Type="DB_FleetServiceModel.ContractualInformationByClient" Role="ContractualInformationByClient" Multiplicity="*" />
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="usr_id" />
+    </Key>
+    <Property Name="usr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usr_firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usr_lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usr_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usr_password" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="grp_id" Type="Int32" Nullable="false" />
+    <Property Name="cli_id" Type="Int32" />
+    <Property Name="deal_id" Type="Int32" />
+    <Property Name="cpn_id" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="DB_FleetServiceModel.FK__Users__cpn_id__11158940" FromRole="Users" ToRole="Company" />
+    <NavigationProperty Name="observationsByTransaction" Relationship="DB_FleetServiceModel.FK_observations_users" FromRole="Users" ToRole="observationsByTransaction" />
+    <NavigationProperty Name="transactionDetail" Relationship="DB_FleetServiceModel.FK_USU_ENDDING" FromRole="Users" ToRole="transactionDetail" />
+  </EntityType>
+  <Association Name="FK__Users__cpn_id__11158940">
+    <End Type="DB_FleetServiceModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="cpn_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="cpn_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_observations_users">
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.observationsByTransaction" Role="observationsByTransaction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="usr_id" />
       </Principal>
-      <Dependent Role="ContractualInformationByClient">
+      <Dependent Role="observationsByTransaction">
         <PropertyRef Name="usr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USU_ENDDING">
+    <End Type="DB_FleetServiceModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.transactionDetail" Role="transactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="usr_id" />
+      </Principal>
+      <Dependent Role="transactionDetail">
+        <PropertyRef Name="usu_ending" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

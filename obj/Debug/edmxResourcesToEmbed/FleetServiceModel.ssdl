@@ -136,7 +136,6 @@
     <Property Name="qt_id" Type="int" />
     <Property Name="cntInf_paymentAgreement" Type="smallint" />
     <Property Name="cntInf_adminPercentage" Type="tinyint" />
-    <Property Name="usr_id" Type="int" Nullable="false" />
     <Property Name="cntInf_state" Type="bit" />
     <Property Name="cntInf_registrationDate" Type="datetime" />
     <Property Name="cntInf_updateDate" Type="datetime" />
@@ -873,18 +872,6 @@
       </Principal>
       <Dependent Role="ContractualInformationByClient">
         <PropertyRef Name="qt_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Contractu__usr_i__5D60DB10">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="ContractualInformationByClient" Type="Self.ContractualInformationByClient" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="usr_id" />
-      </Principal>
-      <Dependent Role="ContractualInformationByClient">
-        <PropertyRef Name="usr_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1908,10 +1895,6 @@
     </AssociationSet>
     <AssociationSet Name="FK__Contractu__qt_id__5C6CB6D7" Association="Self.FK__Contractu__qt_id__5C6CB6D7">
       <End Role="QuotaType" EntitySet="QuotaType" />
-      <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Contractu__usr_i__5D60DB10" Association="Self.FK__Contractu__usr_i__5D60DB10">
-      <End Role="Users" EntitySet="Users" />
       <End Role="ContractualInformationByClient" EntitySet="ContractualInformationByClient" />
     </AssociationSet>
     <AssociationSet Name="FK__DealerByD__deal___5BAD9CC8" Association="Self.FK__DealerByD__deal___5BAD9CC8">

@@ -258,9 +258,6 @@
     <Compile Include="STRPRC_GET_WORKORDERS_VALUES_BY_MONTH_Result.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>FleetServiceModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Taxes.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>

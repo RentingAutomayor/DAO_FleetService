@@ -26,22 +26,20 @@ public partial class Users
 
         this.transactionDetail = new HashSet<transactionDetail>();
 
-        this.ContractualInformationByClient = new HashSet<ContractualInformationByClient>();
-
     }
 
 
     public int usr_id { get; set; }
+
+    public string usr_firstName { get; set; }
+
+    public string usr_lastName { get; set; }
 
     public string usr_name { get; set; }
 
     public string usr_password { get; set; }
 
     public int grp_id { get; set; }
-
-    public string usr_firstName { get; set; }
-
-    public string usr_lastName { get; set; }
 
     public Nullable<int> cli_id { get; set; }
 
@@ -50,12 +48,6 @@ public partial class Users
     public Nullable<int> cpn_id { get; set; }
 
 
-
-    public virtual Groups Groups { get; set; }
-
-    public virtual Groups Groups1 { get; set; }
-
-    public virtual Groups Groups2 { get; set; }
 
     public virtual Company Company { get; set; }
 
@@ -66,10 +58,6 @@ public partial class Users
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<transactionDetail> transactionDetail { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<ContractualInformationByClient> ContractualInformationByClient { get; set; }
 
 }
 

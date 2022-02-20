@@ -125,8 +125,6 @@ public partial class DB_FleetServiceEntities : DbContext
 
     public virtual DbSet<RulesByMovement> RulesByMovement { get; set; }
 
-    public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-
     public virtual DbSet<transactionDetail> transactionDetail { get; set; }
 
     public virtual DbSet<transactionItems> transactionItems { get; set; }
@@ -135,17 +133,17 @@ public partial class DB_FleetServiceEntities : DbContext
 
     public virtual DbSet<transactionState> transactionState { get; set; }
 
-    public virtual DbSet<Users> Users { get; set; }
-
     public virtual DbSet<Company> Company { get; set; }
 
     public virtual DbSet<Taxes> Taxes { get; set; }
 
     public virtual DbSet<TaxesByMaintenanceItem> TaxesByMaintenanceItem { get; set; }
 
+    public virtual DbSet<QuotaType> QuotaType { get; set; }
+
     public virtual DbSet<ContractualInformationByClient> ContractualInformationByClient { get; set; }
 
-    public virtual DbSet<QuotaType> QuotaType { get; set; }
+    public virtual DbSet<Users> Users { get; set; }
 
 
     public virtual ObjectResult<STRPRC_GET_CLIENTS_WITHOUT_QUOTA_Result> STRPRC_GET_CLIENTS_WITHOUT_QUOTA()

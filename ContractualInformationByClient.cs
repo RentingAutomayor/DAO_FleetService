@@ -38,8 +38,6 @@ public partial class ContractualInformationByClient
 
     public Nullable<byte> cntInf_adminPercentage { get; set; }
 
-    public int usr_id { get; set; }
-
     public Nullable<bool> cntInf_state { get; set; }
 
     public Nullable<System.DateTime> cntInf_registrationDate { get; set; }
@@ -53,8 +51,6 @@ public partial class ContractualInformationByClient
     public virtual Client Client { get; set; }
 
     public virtual QuotaType QuotaType { get; set; }
-
-    public virtual Users Users { get; set; }
 
 }
 

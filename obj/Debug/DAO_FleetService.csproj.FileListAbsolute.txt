@@ -21,4 +21,3 @@ D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CoreCo
 D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CopyComplete
 D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.dll
 D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.pdb
-D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.csprojAssemblyReference.cache

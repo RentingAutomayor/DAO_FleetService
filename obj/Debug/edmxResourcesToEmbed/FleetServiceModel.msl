@@ -657,21 +657,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
-          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
-          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
-          <ScalarProperty Name="usr_lastName" ColumnName="usr_lastName" />
-          <ScalarProperty Name="usr_firstName" ColumnName="usr_firstName" />
-          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
-          <ScalarProperty Name="usr_password" ColumnName="usr_password" />
-          <ScalarProperty Name="usr_name" ColumnName="usr_name" />
-          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="STRPRC_GET_CLIENTS_WITHOUT_QUOTA" FunctionName="DB_FleetServiceModel.Store.STRPRC_GET_CLIENTS_WITHOUT_QUOTA">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB_FleetServiceModel.STRPRC_GET_CLIENTS_WITHOUT_QUOTA_Result">
@@ -964,6 +949,19 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="QuotaType">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.QuotaType">
+        <MappingFragment StoreEntitySet="QuotaType">
+          <ScalarProperty Name="qt_deleteDate" ColumnName="qt_deleteDate" />
+          <ScalarProperty Name="qt_updateDate" ColumnName="qt_updateDate" />
+          <ScalarProperty Name="qt_registrationDate" ColumnName="qt_registrationDate" />
+          <ScalarProperty Name="qt_state" ColumnName="qt_state" />
+          <ScalarProperty Name="qt_description" ColumnName="qt_description" />
+          <ScalarProperty Name="qt_name" ColumnName="qt_name" />
+          <ScalarProperty Name="qt_id" ColumnName="qt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ContractualInformationByClient">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.ContractualInformationByClient">
         <MappingFragment StoreEntitySet="ContractualInformationByClient">
@@ -971,7 +969,6 @@
           <ScalarProperty Name="cntInf_updateDate" ColumnName="cntInf_updateDate" />
           <ScalarProperty Name="cntInf_registrationDate" ColumnName="cntInf_registrationDate" />
           <ScalarProperty Name="cntInf_state" ColumnName="cntInf_state" />
-          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
           <ScalarProperty Name="cntInf_adminPercentage" ColumnName="cntInf_adminPercentage" />
           <ScalarProperty Name="cntInf_paymentAgreement" ColumnName="cntInf_paymentAgreement" />
           <ScalarProperty Name="qt_id" ColumnName="qt_id" />
@@ -985,16 +982,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="QuotaType">
-      <EntityTypeMapping TypeName="DB_FleetServiceModel.QuotaType">
-        <MappingFragment StoreEntitySet="QuotaType">
-          <ScalarProperty Name="qt_deleteDate" ColumnName="qt_deleteDate" />
-          <ScalarProperty Name="qt_updateDate" ColumnName="qt_updateDate" />
-          <ScalarProperty Name="qt_registrationDate" ColumnName="qt_registrationDate" />
-          <ScalarProperty Name="qt_state" ColumnName="qt_state" />
-          <ScalarProperty Name="qt_description" ColumnName="qt_description" />
-          <ScalarProperty Name="qt_name" ColumnName="qt_name" />
-          <ScalarProperty Name="qt_id" ColumnName="qt_id" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="cpn_id" ColumnName="cpn_id" />
+          <ScalarProperty Name="deal_id" ColumnName="deal_id" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="usr_password" ColumnName="usr_password" />
+          <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+          <ScalarProperty Name="usr_lastName" ColumnName="usr_lastName" />
+          <ScalarProperty Name="usr_firstName" ColumnName="usr_firstName" />
+          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

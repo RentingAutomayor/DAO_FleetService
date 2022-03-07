@@ -910,29 +910,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER" FunctionName="DB_FleetServiceModel.Store.STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DB_FleetServiceModel.STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER_Result">
-          <ScalarProperty Name="trx_id" ColumnName="trx_id" />
-          <ScalarProperty Name="trx_consecutive" ColumnName="trx_consecutive" />
-          <ScalarProperty Name="veh_id" ColumnName="veh_id" />
-          <ScalarProperty Name="veh_licensePlate" ColumnName="veh_licensePlate" />
-          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
-          <ScalarProperty Name="vm_shortName" ColumnName="vm_shortName" />
-          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
-          <ScalarProperty Name="cli_name" ColumnName="cli_name" />
-          <ScalarProperty Name="mr_id" ColumnName="mr_id" />
-          <ScalarProperty Name="mr_name" ColumnName="mr_name" />
-          <ScalarProperty Name="bra_id" ColumnName="bra_id" />
-          <ScalarProperty Name="bra_name" ColumnName="bra_name" />
-          <ScalarProperty Name="trxst_id" ColumnName="trxst_id" />
-          <ScalarProperty Name="trxst_name" ColumnName="trxst_name" />
-          <ScalarProperty Name="trx_registrationDate" ColumnName="trx_registrationDate" />
-          <ScalarProperty Name="trx_value" ColumnName="trx_value" />
-          <ScalarProperty Name="trx_code" ColumnName="trx_code" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE" FunctionName="DB_FleetServiceModel.Store.STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB_FleetServiceModel.STRPRC_GET_WORKORDERS_ANNUL_BY_VEHICLE_Result">
@@ -997,5 +974,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1" FunctionName="DB_FleetServiceModel.Store.STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_FleetServiceModel.STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1_Result">
+          <ScalarProperty Name="trx_id" ColumnName="trx_id" />
+          <ScalarProperty Name="trx_consecutive" ColumnName="trx_consecutive" />
+          <ScalarProperty Name="veh_id" ColumnName="veh_id" />
+          <ScalarProperty Name="veh_licensePlate" ColumnName="veh_licensePlate" />
+          <ScalarProperty Name="vm_id" ColumnName="vm_id" />
+          <ScalarProperty Name="vm_shortName" ColumnName="vm_shortName" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="cli_name" ColumnName="cli_name" />
+          <ScalarProperty Name="mr_id" ColumnName="mr_id" />
+          <ScalarProperty Name="mr_name" ColumnName="mr_name" />
+          <ScalarProperty Name="bra_id" ColumnName="bra_id" />
+          <ScalarProperty Name="bra_name" ColumnName="bra_name" />
+          <ScalarProperty Name="trxst_id" ColumnName="trxst_id" />
+          <ScalarProperty Name="trxst_name" ColumnName="trxst_name" />
+          <ScalarProperty Name="trx_registrationDate" ColumnName="trx_registrationDate" />
+          <ScalarProperty Name="trx_value" ColumnName="trx_value" />
+          <ScalarProperty Name="trx_code" ColumnName="trx_code" />
+          <ScalarProperty Name="trx_updateDate" ColumnName="trx_updateDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

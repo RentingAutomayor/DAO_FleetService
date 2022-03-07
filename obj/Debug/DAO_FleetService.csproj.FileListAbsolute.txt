@@ -17,6 +17,7 @@ D:\RepositoriosRenting\DAO_FleetService\bin\Debug\EntityFramework.dll
 D:\RepositoriosRenting\DAO_FleetService\bin\Debug\EntityFramework.SqlServer.dll
 D:\RepositoriosRenting\DAO_FleetService\bin\Debug\EntityFramework.xml
 D:\RepositoriosRenting\DAO_FleetService\bin\Debug\EntityFramework.SqlServer.xml
+D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.csprojAssemblyReference.cache
 D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CoreCompileInputs.cache
 D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.csproj.CopyComplete
 D:\RepositoriosRenting\DAO_FleetService\obj\Debug\DAO_FleetService.dll

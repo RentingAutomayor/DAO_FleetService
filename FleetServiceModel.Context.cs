@@ -744,6 +744,48 @@ public partial class DB_FleetServiceEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<STRPRC_GET_WORKORDERS_FINISHED_BY_VEHICLE_Result>("STRPRC_GET_WORKORDERS_FINISHED_BY_VEHICLE", cLIENT_IDParameter, dEALER_IDParameter, lICENSE_PLATEParameter, iNI_DATEParameter, eND_DATEParameter);
     }
 
+
+    public virtual ObjectResult<STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1_Result> STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1(Nullable<int> dEALER_ID, Nullable<int> cLIENT_ID, Nullable<System.DateTime> iNI_DATE, Nullable<System.DateTime> eND_DATE, string cODE, string lICENSE_PLATE, Nullable<int> sTATE_WORK_ORDER)
+    {
+
+        var dEALER_IDParameter = dEALER_ID.HasValue ?
+            new ObjectParameter("DEALER_ID", dEALER_ID) :
+            new ObjectParameter("DEALER_ID", typeof(int));
+
+
+        var cLIENT_IDParameter = cLIENT_ID.HasValue ?
+            new ObjectParameter("CLIENT_ID", cLIENT_ID) :
+            new ObjectParameter("CLIENT_ID", typeof(int));
+
+
+        var iNI_DATEParameter = iNI_DATE.HasValue ?
+            new ObjectParameter("INI_DATE", iNI_DATE) :
+            new ObjectParameter("INI_DATE", typeof(System.DateTime));
+
+
+        var eND_DATEParameter = eND_DATE.HasValue ?
+            new ObjectParameter("END_DATE", eND_DATE) :
+            new ObjectParameter("END_DATE", typeof(System.DateTime));
+
+
+        var cODEParameter = cODE != null ?
+            new ObjectParameter("CODE", cODE) :
+            new ObjectParameter("CODE", typeof(string));
+
+
+        var lICENSE_PLATEParameter = lICENSE_PLATE != null ?
+            new ObjectParameter("LICENSE_PLATE", lICENSE_PLATE) :
+            new ObjectParameter("LICENSE_PLATE", typeof(string));
+
+
+        var sTATE_WORK_ORDERParameter = sTATE_WORK_ORDER.HasValue ?
+            new ObjectParameter("STATE_WORK_ORDER", sTATE_WORK_ORDER) :
+            new ObjectParameter("STATE_WORK_ORDER", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1_Result>("STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1", dEALER_IDParameter, cLIENT_IDParameter, iNI_DATEParameter, eND_DATEParameter, cODEParameter, lICENSE_PLATEParameter, sTATE_WORK_ORDERParameter);
+    }
+
 }
 
 }

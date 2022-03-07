@@ -204,6 +204,9 @@
     <Compile Include="STRPRC_GET_FINANCIAL_INFORMATION_BY_CLIENT_Result.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER1_Result.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="STRPRC_GET_TRANSACTIONS_BY_CLIENT_OR_DEALER_Result.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>

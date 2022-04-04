@@ -58,6 +58,9 @@
     <EntitySetMapping Name="Contact">
       <EntityTypeMapping TypeName="DB_FleetServiceModel.Contact">
         <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="cnttp_id" ColumnName="cnttp_id" />
+          <ScalarProperty Name="cnt_mustNotify" ColumnName="cnt_mustNotify" />
+          <ScalarProperty Name="cnt_updateDate" ColumnName="cnt_updateDate" />
           <ScalarProperty Name="cnt_id" ColumnName="cnt_id" />
           <ScalarProperty Name="cnt_name" ColumnName="cnt_name" />
           <ScalarProperty Name="cnt_lastName" ColumnName="cnt_lastName" />
@@ -998,5 +1001,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="ContactType">
+      <EntityTypeMapping TypeName="DB_FleetServiceModel.ContactType">
+        <MappingFragment StoreEntitySet="ContactType">
+          <ScalarProperty Name="cnttp_deleteDate" ColumnName="cnttp_deleteDate" />
+          <ScalarProperty Name="cnttp_updateDate" ColumnName="cnttp_updateDate" />
+          <ScalarProperty Name="cnttp_registrationDate" ColumnName="cnttp_registrationDate" />
+          <ScalarProperty Name="cnttp_state" ColumnName="cnttp_state" />
+          <ScalarProperty Name="cnttp_name" ColumnName="cnttp_name" />
+          <ScalarProperty Name="cnttp_id" ColumnName="cnttp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -91,6 +91,10 @@
     <NavigationProperty Name="Client" Relationship="Self.FK__Contact__cli_id__6FE99F9F" FromRole="Contact" ToRole="Client" />
     <NavigationProperty Name="Dealer" Relationship="Self.FK__Contact__deal_id__70DDC3D8" FromRole="Contact" ToRole="Dealer" />
     <NavigationProperty Name="JobTitlesClient" Relationship="Self.FK__Contact__jtcl_id__6EF57B66" FromRole="Contact" ToRole="JobTitlesClient" />
+    <Property Name="cnt_updateDate" Type="DateTime" Precision="3" />
+    <Property Name="cnt_mustNotify" Type="Boolean" />
+    <Property Name="cnttp_id" Type="Int32" />
+    <NavigationProperty Name="ContactType" Relationship="DB_FleetServiceModel.FK_contactType" FromRole="Contact" ToRole="ContactType" />
   </EntityType>
   <EntityType Name="Countries">
     <Key>
@@ -862,6 +866,11 @@
       <Parameter Name="LICENSE_PLATE" Mode="In" Type="String" />
       <Parameter Name="STATE_WORK_ORDER" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="ContactType" EntityType="DB_FleetServiceModel.ContactType" />
+    <AssociationSet Name="FK_contactType" Association="DB_FleetServiceModel.FK_contactType">
+      <End Role="ContactType" EntitySet="ContactType" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Vehicle">
     <Key>
@@ -2675,4 +2684,28 @@
     <Property Type="String" Name="trx_code" Nullable="true" MaxLength="10" />
     <Property Type="DateTime" Name="trx_updateDate" Nullable="true" Precision="23" />
   </ComplexType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="cnttp_id" />
+    </Key>
+    <Property Name="cnttp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnttp_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cnttp_state" Type="Boolean" Nullable="false" />
+    <Property Name="cnttp_registrationDate" Type="DateTime" Precision="3" />
+    <Property Name="cnttp_updateDate" Type="DateTime" Precision="3" />
+    <Property Name="cnttp_deleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Contact" Relationship="DB_FleetServiceModel.FK_contactType" FromRole="ContactType" ToRole="Contact" />
+  </EntityType>
+  <Association Name="FK_contactType">
+    <End Type="DB_FleetServiceModel.ContactType" Role="ContactType" Multiplicity="0..1" />
+    <End Type="DB_FleetServiceModel.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="cnttp_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="cnttp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

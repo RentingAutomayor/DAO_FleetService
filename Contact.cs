@@ -46,6 +46,12 @@ public partial class Contact
 
     public Nullable<System.DateTime> cnt_registrationDate { get; set; }
 
+    public Nullable<System.DateTime> cnt_updateDate { get; set; }
+
+    public Nullable<bool> cnt_mustNotify { get; set; }
+
+    public Nullable<int> cnttp_id { get; set; }
+
 
 
     public virtual branch branch { get; set; }
@@ -57,6 +63,8 @@ public partial class Contact
     public virtual Dealer Dealer { get; set; }
 
     public virtual JobTitlesClient JobTitlesClient { get; set; }
+
+    public virtual ContactType ContactType { get; set; }
 
 }
 

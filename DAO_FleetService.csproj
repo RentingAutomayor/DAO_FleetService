@@ -74,6 +74,9 @@
     <Compile Include="Contact.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ContactType.cs">
+      <DependentUpon>FleetServiceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contract.cs">
       <DependentUpon>FleetServiceModel.tt</DependentUpon>
     </Compile>

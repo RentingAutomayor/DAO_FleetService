@@ -145,6 +145,8 @@ public partial class DB_FleetServiceEntities : DbContext
 
     public virtual DbSet<Users> Users { get; set; }
 
+    public virtual DbSet<ContactType> ContactType { get; set; }
+
 
     public virtual ObjectResult<STRPRC_GET_CLIENTS_WITHOUT_QUOTA_Result> STRPRC_GET_CLIENTS_WITHOUT_QUOTA()
     {

@@ -90,6 +90,20 @@
           <Property Name="cli_id" Type="int" />
           <Property Name="deal_id" Type="int" />
           <Property Name="cnt_registrationDate" Type="datetime" />
+          <Property Name="cnt_updateDate" Type="datetime" />
+          <Property Name="cnt_mustNotify" Type="bit" />
+          <Property Name="cnttp_id" Type="int" />
+        </EntityType>
+        <EntityType Name="ContactType">
+          <Key>
+            <PropertyRef Name="cnttp_id" />
+          </Key>
+          <Property Name="cnttp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cnttp_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cnttp_state" Type="bit" Nullable="false" />
+          <Property Name="cnttp_registrationDate" Type="datetime" />
+          <Property Name="cnttp_updateDate" Type="datetime" />
+          <Property Name="cnttp_deleteDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Contract">
           <Key>
@@ -1528,6 +1542,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_contactType">
+          <End Role="ContactType" Type="Self.ContactType" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactType">
+              <PropertyRef Name="cnttp_id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="cnttp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_jobTitle_areas">
           <End Role="areas" Type="Self.areas" Multiplicity="0..1" />
           <End Role="jobTitle" Type="Self.jobTitle" Multiplicity="*" />
@@ -1790,6 +1816,7 @@
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactType" EntityType="Self.ContactType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContractState" EntityType="Self.ContractState" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContractualInformationByClient" EntityType="Self.ContractualInformationByClient" Schema="dbo" store:Type="Tables" />
@@ -2118,6 +2145,10 @@
             <End Role="Vehicle" EntitySet="Vehicle" />
             <End Role="VehiclesByContract" EntitySet="VehiclesByContract" />
           </AssociationSet>
+          <AssociationSet Name="FK_contactType" Association="Self.FK_contactType">
+            <End Role="ContactType" EntitySet="ContactType" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
           <AssociationSet Name="FK_jobTitle_areas" Association="Self.FK_jobTitle_areas">
             <End Role="areas" EntitySet="areas" />
             <End Role="jobTitle" EntitySet="jobTitle" />
@@ -2262,6 +2293,10 @@
           <NavigationProperty Name="Client" Relationship="Self.FK__Contact__cli_id__6FE99F9F" FromRole="Contact" ToRole="Client" />
           <NavigationProperty Name="Dealer" Relationship="Self.FK__Contact__deal_id__70DDC3D8" FromRole="Contact" ToRole="Dealer" />
           <NavigationProperty Name="JobTitlesClient" Relationship="Self.FK__Contact__jtcl_id__6EF57B66" FromRole="Contact" ToRole="JobTitlesClient" />
+          <Property Name="cnt_updateDate" Type="DateTime" Precision="3" />
+          <Property Name="cnt_mustNotify" Type="Boolean" />
+          <Property Name="cnttp_id" Type="Int32" />
+          <NavigationProperty Name="ContactType" Relationship="DB_FleetServiceModel.FK_contactType" FromRole="Contact" ToRole="ContactType" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -3033,6 +3068,11 @@
             <Parameter Name="LICENSE_PLATE" Mode="In" Type="String" />
             <Parameter Name="STATE_WORK_ORDER" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="ContactType" EntityType="DB_FleetServiceModel.ContactType" />
+          <AssociationSet Name="FK_contactType" Association="DB_FleetServiceModel.FK_contactType">
+            <End Role="ContactType" EntitySet="ContactType" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Vehicle">
           <Key>
@@ -4847,6 +4887,30 @@
           <Property Type="String" Name="trx_code" Nullable="true" MaxLength="10" />
           <Property Type="DateTime" Name="trx_updateDate" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="ContactType">
+          <Key>
+            <PropertyRef Name="cnttp_id" />
+          </Key>
+          <Property Name="cnttp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cnttp_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cnttp_state" Type="Boolean" Nullable="false" />
+          <Property Name="cnttp_registrationDate" Type="DateTime" Precision="3" />
+          <Property Name="cnttp_updateDate" Type="DateTime" Precision="3" />
+          <Property Name="cnttp_deleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Contact" Relationship="DB_FleetServiceModel.FK_contactType" FromRole="ContactType" ToRole="Contact" />
+        </EntityType>
+        <Association Name="FK_contactType">
+          <End Type="DB_FleetServiceModel.ContactType" Role="ContactType" Multiplicity="0..1" />
+          <End Type="DB_FleetServiceModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactType">
+              <PropertyRef Name="cnttp_id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="cnttp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4910,6 +4974,9 @@
           <EntitySetMapping Name="Contact">
             <EntityTypeMapping TypeName="DB_FleetServiceModel.Contact">
               <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="cnttp_id" ColumnName="cnttp_id" />
+                <ScalarProperty Name="cnt_mustNotify" ColumnName="cnt_mustNotify" />
+                <ScalarProperty Name="cnt_updateDate" ColumnName="cnt_updateDate" />
                 <ScalarProperty Name="cnt_id" ColumnName="cnt_id" />
                 <ScalarProperty Name="cnt_name" ColumnName="cnt_name" />
                 <ScalarProperty Name="cnt_lastName" ColumnName="cnt_lastName" />
@@ -5850,6 +5917,18 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ContactType">
+            <EntityTypeMapping TypeName="DB_FleetServiceModel.ContactType">
+              <MappingFragment StoreEntitySet="ContactType">
+                <ScalarProperty Name="cnttp_deleteDate" ColumnName="cnttp_deleteDate" />
+                <ScalarProperty Name="cnttp_updateDate" ColumnName="cnttp_updateDate" />
+                <ScalarProperty Name="cnttp_registrationDate" ColumnName="cnttp_registrationDate" />
+                <ScalarProperty Name="cnttp_state" ColumnName="cnttp_state" />
+                <ScalarProperty Name="cnttp_name" ColumnName="cnttp_name" />
+                <ScalarProperty Name="cnttp_id" ColumnName="cnttp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

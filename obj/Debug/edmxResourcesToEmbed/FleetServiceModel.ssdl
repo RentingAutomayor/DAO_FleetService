@@ -85,6 +85,20 @@
     <Property Name="cli_id" Type="int" />
     <Property Name="deal_id" Type="int" />
     <Property Name="cnt_registrationDate" Type="datetime" />
+    <Property Name="cnt_updateDate" Type="datetime" />
+    <Property Name="cnt_mustNotify" Type="bit" />
+    <Property Name="cnttp_id" Type="int" />
+  </EntityType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="cnttp_id" />
+    </Key>
+    <Property Name="cnttp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cnttp_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="cnttp_state" Type="bit" Nullable="false" />
+    <Property Name="cnttp_registrationDate" Type="datetime" />
+    <Property Name="cnttp_updateDate" Type="datetime" />
+    <Property Name="cnttp_deleteDate" Type="datetime" />
   </EntityType>
   <EntityType Name="Contract">
     <Key>
@@ -1523,6 +1537,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_contactType">
+    <End Role="ContactType" Type="Self.ContactType" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="cnttp_id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="cnttp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_jobTitle_areas">
     <End Role="areas" Type="Self.areas" Multiplicity="0..1" />
     <End Role="jobTitle" Type="Self.jobTitle" Multiplicity="*" />
@@ -1785,6 +1811,7 @@
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactType" EntityType="Self.ContactType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContractState" EntityType="Self.ContractState" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContractualInformationByClient" EntityType="Self.ContractualInformationByClient" Schema="dbo" store:Type="Tables" />
@@ -2112,6 +2139,10 @@
     <AssociationSet Name="FK__VehiclesB__veh_i__19AACF41" Association="Self.FK__VehiclesB__veh_i__19AACF41">
       <End Role="Vehicle" EntitySet="Vehicle" />
       <End Role="VehiclesByContract" EntitySet="VehiclesByContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_contactType" Association="Self.FK_contactType">
+      <End Role="ContactType" EntitySet="ContactType" />
+      <End Role="Contact" EntitySet="Contact" />
     </AssociationSet>
     <AssociationSet Name="FK_jobTitle_areas" Association="Self.FK_jobTitle_areas">
       <End Role="areas" EntitySet="areas" />

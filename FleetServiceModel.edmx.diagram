@@ -144,6 +144,8 @@
         <AssociationConnector Association="DB_FleetServiceModel.FK__Users__cpn_id__11158940" />
         <AssociationConnector Association="DB_FleetServiceModel.FK_observations_users" />
         <AssociationConnector Association="DB_FleetServiceModel.FK_USU_ENDDING" />
+        <EntityTypeShape EntityType="DB_FleetServiceModel.ContactType" Width="1.5" PointX="4.375" PointY="18" />
+        <AssociationConnector Association="DB_FleetServiceModel.FK_contactType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
